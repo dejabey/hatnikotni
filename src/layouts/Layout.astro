@@ -1,6 +1,4 @@
 ---
-import '../styles/global.css';
-
 interface Props {
   title?: string;
   description?: string;
@@ -8,44 +6,63 @@ interface Props {
 }
 
 const {
-  title = "Hatnikotni Ventures — Independent Digital Studio",
+  title = "Hatnikotni Ventures | Independent Digital Studio",
   description = "Building thoughtful, purpose-driven digital products with a focus on simplicity, quality, and long-term value.",
-  image = "/og-image.png",
+  image = "/og-image.png"
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://hatnikotni.com');
-const socialImageURL = new URL(image, Astro.url);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImageURL = new URL(image, Astro.site);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="ms">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL.href} />
+
     <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalURL} />
 
     <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:url" content={canonicalURL.href} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image" content={socialImageURL.href} />
+    <meta property="og:image:secure_url" content={socialImageURL.href} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:url" content={canonicalURL.href} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={socialImageURL} />
+    <meta property="twitter:image" content={socialImageURL.href} />
   </head>
   <body>
     <slot />
   </body>
 </html>
+
+<style is:global>
+  html {
+    scroll-behavior: smooth;
+    font-family: system-ui, sans-serif;
+  }
+
+  /* Custom selection style */
+  ::selection {
+    background-color: #000000;
+    color: #ffffff;
+  }
+</style>
