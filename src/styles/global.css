@@ -3,6 +3,17 @@
 @import "./base/typography.css";
 @import "./base/layout.css";
 
+/* 1. Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 2. Custom Text Highlight (Biru Gelap & Teks Putih) */
+::selection {
+  background-color: #0f172a;
+  color: #ffffff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -29,4 +40,11 @@ a {
 img {
   max-width: 100%;
   display: block;
+}
+
+/* 3. Focus state mesra papan kekunci (Keyboard Accessibility) */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 4px;
 }
