@@ -1,11 +1,24 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
 <footer class="footer">
-
   <div class="container">
-
     <p>
-      © 2026 Hatnikotni Ventures. All rights reserved.
+      &copy; {currentYear} Hatnikotni Ventures. All rights reserved.
     </p>
-
   </div>
-
 </footer>
+
+<style>
+  .footer {
+    padding: 2.5rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  .footer p {
+    color: #64748b;
+    font-size: 0.875rem;
+  }
+</style>

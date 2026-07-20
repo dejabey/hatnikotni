@@ -1,35 +1,77 @@
 <section class="projects" id="projects">
+  <div class="container">
+    <h2>Featured Project</h2>
 
-    <div class="container">
+    <div class="project-card">
+      <div class="project-content">
+        <h3>Discover Perlis</h3>
+        <p>
+          A modern travel guide and local business directory designed to help
+          visitors discover the best of Perlis with confidence.
+        </p>
 
-        <h2>Current Project</h2>
-
-        <div class="project-card">
-
-            <div class="project-content">
-
-                <h3>Discover Perlis</h3>
-
-                <p>
-                    A modern travel guide and local business directory
-                    designed to help visitors discover the best of Perlis
-                    with confidence.
-                </p>
-
-                <a
-                    href="https://perlis.xyz"
-                    target="_blank"
-                    rel="noopener"
-                    class="button">
-
-                    Visit Discover Perlis
-
-                </a>
-
-            </div>
-
-        </div>
-
+        <a
+          href="https://perlis.xyz"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="project-link"
+        >
+          Visit Discover Perlis &rarr;
+        </a>
+      </div>
     </div>
-
+  </div>
 </section>
+
+<style>
+  .projects {
+    padding: 4rem 0;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #64748b;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Reka bentuk Kad Projek yang minimalis */
+  .project-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 650px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .project-card:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  }
+
+  .project-content h3 {
+    font-size: 1.5rem;
+    color: #0f172a;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-content p {
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .project-link:hover {
+    text-decoration: underline;
+  }
+</style>

@@ -1,16 +1,50 @@
 <header class="site-header">
   <div class="container">
-
     <a href="/" class="logo">
       Hatnikotni
     </a>
 
     <nav class="nav">
-      <a href="/">Home</a>
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Contact</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </nav>
-
   </div>
 </header>
+
+<style>
+  .site-header {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+
+  .nav {
+    display: flex;
+    gap: 1.75rem;
+  }
+
+  .nav a {
+    color: #475569;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+  }
+
+  .nav a:hover {
+    color: #0f172a;
+  }
+</style>
