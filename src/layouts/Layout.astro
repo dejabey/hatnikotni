@@ -50,17 +50,39 @@ const socialImageURL = new URL(image, Astro.site);
     <meta property="twitter:image" content={socialImageURL.href} />
   </head>
   <body>
-    <slot />
+    <div class="page-wrapper">
+      <slot />
+    </div>
   </body>
 </html>
 
 <style is:global>
-  html {
-    scroll-behavior: smooth;
-    font-family: system-ui, sans-serif;
+  /* Reset Asas CSS */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 
-  /* Custom selection style */
+  html {
+    scroll-behavior: smooth;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #ffffff;
+    color: #111827;
+  }
+
+  body {
+    min-height: 100vh;
+  }
+
+  /* Mengetengahkan kandungan & mengehadkan lebar paparan */
+  .page-wrapper {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+
+  /* Custom text selection style */
   ::selection {
     background-color: #000000;
     color: #ffffff;
