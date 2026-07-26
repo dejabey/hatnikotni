@@ -1,0 +1,25 @@
+:root {
+
+  /* Brand */
+
+  --color-primary: #0f172a;
+  --color-secondary: #475569;
+
+  /* Background */
+
+  --color-bg: #f8fafc;
+  --color-white: #ffffff;
+
+  /* Border */
+
+  --color-border: #e2e8f0;
+
+  /* Container */
+
+  --container-width: 1100px;
+
+  /* Radius */
+
+  --radius: 12px;
+
+}
