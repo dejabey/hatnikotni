@@ -6,7 +6,9 @@ import Layout from '../layouts/Layout.astro';
   <main>
     <!-- Header / Navigation -->
     <header class="header">
-      <div class="logo">Hatnikotni</div>
+      <a href="/" class="logo-link">
+        <img src="/logo.png" alt="Hatnikotni Logo" class="logo-img" />
+      </a>
       <nav class="nav">
         <a href="#projects">Projects</a>
         <a href="#about">About</a>
@@ -78,9 +80,17 @@ import Layout from '../layouts/Layout.astro';
     padding-bottom: 3rem;
   }
 
-  .logo {
-    font-weight: 700;
-    font-size: 1.25rem;
+  /* Tetapan baru untuk imej logo */
+  .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .logo-img {
+    height: 48px; /* Anda boleh ubah nilai ini untuk besarkan atau kecilkan logo */
+    width: auto;
+    object-fit: contain;
   }
 
   .nav a {
