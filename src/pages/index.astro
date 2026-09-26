@@ -1,18 +1,279 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import Projects from '../components/Projects.astro';
-import Contact from '../components/Contact.astro';
-import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="Hatnikotni Ventures | Independent Digital Studio">
-  <Header />
   <main>
-    <Hero />
-    <Projects />
-    <Contact />
+    <!-- Header / Navigation -->
+    <header class="header">
+      <a href="/" class="logo-link">
+        <img src="/logo.png" alt="Hatnikotni Logo" class="logo-img" />
+      </a>
+      <nav class="nav">
+        <a href="#projects">Projects</a>
+        <a href="#plugins">Plugins</a>
+        <a href="#about">About</a>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Simple ideas. Useful products.</h1>
+      <p>Hatnikotni creates independent digital products, AI tools, and WordPress plugins that are simple, useful, and built to last.</p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">Explore Products</a>
+        <a href="#about" class="btn btn-secondary">About Hatnikotni</a>
+      </div>
+    </section>
+
+    <!-- Web & AI Projects Section -->
+    <section id="projects" class="projects-section">
+      <h2 class="section-title">FEATURED PROJECTS</h2>
+      
+      <div class="projects-grid">
+        <!-- Project 1: Discover Perlis -->
+        <article class="project-card">
+          <div class="project-tags">
+            <span class="tag">Directory</span>
+            <span class="tag">Travel Guide</span>
+          </div>
+          <h3>Discover Perlis</h3>
+          <p>A modern travel guide and local business directory designed to help visitors discover the best of Perlis with confidence.</p>
+          <a href="https://perlis.xyz" target="_blank" rel="noopener noreferrer" class="project-link">
+            Visit Discover Perlis &rarr;
+          </a>
+        </article>
+
+        <!-- Project 2: Perlis AI Planner -->
+        <article class="project-card">
+          <div class="project-tags">
+            <span class="tag">AI Powered</span>
+            <span class="tag">Smart Assistant</span>
+          </div>
+          <h3>Perlis AI Travel Planner</h3>
+          <p>An intelligent AI assistant that instantly generates customized per-day itineraries and travel recommendations for Perlis visitors.</p>
+          <a href="https://planner.perlis.xyz" target="_blank" rel="noopener noreferrer" class="project-link">
+            Try AI Planner &rarr;
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- WordPress Plugins Section -->
+    <section id="plugins" class="projects-section">
+      <h2 class="section-title">WORDPRESS PLUGINS</h2>
+      
+      <div class="projects-grid">
+        <!-- Plugin 1: Hatnikotni Chat -->
+        <article class="project-card plugin-card">
+          <div class="project-tags">
+            <span class="tag tag-wp">WordPress</span>
+            <span class="tag">WhatsApp Analytics</span>
+          </div>
+          <h3>Hatnikotni Chat</h3>
+          <p>Lightweight WhatsApp contact routing with consent-aware first-party interaction analytics and UTM campaign attribution.</p>
+          <span class="status-badge">In Active Development</span>
+        </article>
+
+        <!-- Plugin 2: Hatnikotni Jelajah Cuaca -->
+        <article class="project-card plugin-card">
+          <div class="project-tags">
+            <span class="tag tag-wp">WordPress</span>
+            <span class="tag">Malaysia API</span>
+          </div>
+          <h3>Hatnikotni Jelajah Cuaca</h3>
+          <p>WordPress weather and location engine exclusively for Malaysia, using localized weather data and Malaysian location services.</p>
+          <span class="status-badge">In Active Development</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <h2 class="section-title">ABOUT</h2>
+      <p>Hatnikotni Ventures is an independent digital studio focused on crafting web experiences, practical tools, WordPress software, and AI-driven applications.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; {new Date().getFullYear()} Hatnikotni Ventures. All rights reserved.</p>
+    </footer>
   </main>
-  <Footer />
 </Layout>
+
+<style>
+  /* Base Styles & Layout */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 3rem;
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .logo-img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .nav a {
+    color: #4b5563;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .nav a:hover {
+    color: #111827;
+  }
+
+  /* Hero Section */
+  .hero {
+    margin-bottom: 5rem;
+  }
+
+  .hero h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero p {
+    font-size: 1.125rem;
+    color: #4b5563;
+    max-width: 580px;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    border-radius: 6px;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+
+  .btn-primary {
+    background-color: #2563eb;
+    color: #ffffff;
+  }
+
+  .btn-secondary {
+    border: 1px solid #d1d5db;
+    color: #111827;
+  }
+
+  /* Section Common */
+  .section-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Projects & Plugins Grid */
+  .projects-section {
+    margin-bottom: 4rem;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1.75rem;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .tag {
+    background-color: #f3f4f6;
+    color: #4b5563;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+
+  .tag-wp {
+    background-color: #eff6ff;
+    color: #1d4ed8;
+  }
+
+  .project-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-card p {
+    color: #4b5563;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .project-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .status-badge {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #059669;
+    background-color: #ecfdf5;
+    padding: 0.35rem 0.65rem;
+    border-radius: 4px;
+    width: fit-content;
+  }
+
+  /* About & Footer */
+  .about-section {
+    border-top: 1px solid #f3f4f6;
+    padding-top: 3rem;
+    margin-bottom: 4rem;
+  }
+
+  .about-section p {
+    color: #4b5563;
+    line-height: 1.6;
+    max-width: 600px;
+  }
+
+  .footer {
+    border-top: 1px solid #f3f4f6;
+    padding-top: 2rem;
+    color: #9ca3af;
+    font-size: 0.85rem;
+  }
+</style>
