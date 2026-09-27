@@ -3,113 +3,132 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Hatnikotni Ventures | Independent Digital Studio">
-  <main id="top">
-    <!-- Header / Navigation -->
-    <header class="header">
-      <a href="/" class="logo-link">
-        <img src="/logo.png" alt="Hatnikotni Logo" class="logo-img" />
-      </a>
-      <nav class="nav">
-        <a href="#projects">Projects</a>
-        <a href="#plugins">Plugins</a>
-        <a href="#about">About</a>
-      </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-      <h1>Simple ideas. Useful products.</h1>
-      <p>Hatnikotni creates independent digital products, AI tools, and WordPress plugins that are simple, useful, and built to last.</p>
-      <div class="hero-buttons">
-        <a href="#projects" class="btn btn-primary">Explore Products</a>
-        <a href="#about" class="btn btn-secondary">About Hatnikotni</a>
+  <div class="page-container" id="top">
+    <!-- Left Column / Sticky Sidebar (Desktop) -->
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <a href="/" class="logo-link">
+          <img src="/logo.png" alt="Hatnikotni Logo" class="logo-img" />
+        </a>
+        <p class="sidebar-bio">
+          Hatnikotni is an independent digital studio creating simple, useful products, AI tools, and WordPress plugins that are built to last.
+        </p>
+        <nav class="nav">
+          <a href="#projects">Projects</a>
+          <a href="#plugins">Plugins</a>
+          <a href="#about">About</a>
+        </nav>
       </div>
-    </section>
+    </aside>
 
-    <!-- Web & AI Projects Section -->
-    <section id="projects" class="projects-section">
-      <h2 class="section-title">FEATURED PROJECTS</h2>
-      
-      <div class="projects-grid">
-        <!-- Project 1: Discover Perlis -->
-        <article class="project-card">
-          <div class="project-tags">
-            <span class="tag">Directory</span>
-            <span class="tag">Travel Guide</span>
+    <!-- Right Column / Main Content -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="hero">
+        <h1 class="hero-title">SIMPLE IDEAS.<br /><span class="highlight">USEFUL PRODUCTS.</span></h1>
+        <p class="hero-desc">Hatnikotni creates independent digital products, AI tools, and WordPress plugins that are simple, useful, and built to last.</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">Explore Products</a>
+          <a href="#about" class="btn btn-secondary">About Hatnikotni</a>
+        </div>
+      </section>
+
+      <!-- Web & AI Projects Section -->
+      <section id="projects" class="content-section">
+        <h2 class="section-title">FEATURED PROJECTS</h2>
+        
+        <div class="projects-grid">
+          <!-- Project 1: Discover Perlis -->
+          <article class="project-card">
+            <div class="project-tags">
+              <span class="tag">Directory</span>
+              <span class="tag">Travel Guide</span>
+            </div>
+            <h3>Discover Perlis</h3>
+            <p>A modern travel guide and local business directory designed to help visitors discover the best of Perlis with confidence.</p>
+            <a href="https://perlis.xyz" target="_blank" rel="noopener noreferrer" class="project-link">
+              Visit Discover Perlis &rarr;
+            </a>
+          </article>
+
+          <!-- Project 2: Perlis AI Planner -->
+          <article class="project-card">
+            <div class="project-tags">
+              <span class="tag tag-ai">AI Powered</span>
+              <span class="tag">Smart Assistant</span>
+            </div>
+            <h3>Perlis AI Travel Planner</h3>
+            <p>An intelligent AI assistant that instantly generates customized per-day itineraries and travel recommendations for Perlis visitors.</p>
+            <a href="https://planner.perlis.xyz" target="_blank" rel="noopener noreferrer" class="project-link">
+              Try AI Planner &rarr;
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <!-- WordPress Plugins Section -->
+      <section id="plugins" class="content-section">
+        <h2 class="section-title">WORDPRESS PLUGINS</h2>
+        
+        <div class="projects-grid">
+          <!-- Plugin 1: Hatnikotni Chat -->
+          <article class="project-card plugin-card">
+            <div class="project-tags">
+              <span class="tag tag-wp">WordPress</span>
+              <span class="tag">WhatsApp Analytics</span>
+            </div>
+            <h3>Hatnikotni Chat</h3>
+            <p>Lightweight WhatsApp contact routing with consent-aware first-party interaction analytics and UTM campaign attribution.</p>
+            <div class="status-badge">
+              <span class="pulse-dot"></span>
+              IN ACTIVE DEVELOPMENT
+            </div>
+          </article>
+
+          <!-- Plugin 2: Hatnikotni Jelajah Cuaca -->
+          <article class="project-card plugin-card">
+            <div class="project-tags">
+              <span class="tag tag-wp">WordPress</span>
+              <span class="tag">Malaysia API</span>
+            </div>
+            <h3>Hatnikotni Jelajah Cuaca</h3>
+            <p>WordPress weather and location engine exclusively for Malaysia, using localized weather data and Malaysian location services.</p>
+            <div class="status-badge">
+              <span class="pulse-dot"></span>
+              IN ACTIVE DEVELOPMENT
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="content-section">
+        <h2 class="section-title">ABOUT</h2>
+        <p class="about-text">Hatnikotni Ventures is an independent digital studio focused on crafting web experiences, practical tools, WordPress software, and AI-driven applications.</p>
+      </section>
+
+      <!-- Local Identity Footer -->
+      <footer class="footer">
+        <div class="local-badge">
+          <img src="/logo.png" alt="Hatnikotni Logo" class="footer-logo" />
+          <div>
+            <div class="badge-title">HANDCRAFTED WITH PRECISION IN NORTHERN MALAYSIA</div>
+            <div class="badge-sub">Minimalist custom node cluster design</div>
           </div>
-          <h3>Discover Perlis</h3>
-          <p>A modern travel guide and local business directory designed to help visitors discover the best of Perlis with confidence.</p>
-          <a href="https://perlis.xyz" target="_blank" rel="noopener noreferrer" class="project-link">
-            Visit Discover Perlis &rarr;
-          </a>
-        </article>
-
-        <!-- Project 2: Perlis AI Planner -->
-        <article class="project-card">
-          <div class="project-tags">
-            <span class="tag">AI Powered</span>
-            <span class="tag">Smart Assistant</span>
-          </div>
-          <h3>Perlis AI Travel Planner</h3>
-          <p>An intelligent AI assistant that instantly generates customized per-day itineraries and travel recommendations for Perlis visitors.</p>
-          <a href="https://planner.perlis.xyz" target="_blank" rel="noopener noreferrer" class="project-link">
-            Try AI Planner &rarr;
-          </a>
-        </article>
-      </div>
-    </section>
-
-    <!-- WordPress Plugins Section -->
-    <section id="plugins" class="projects-section">
-      <h2 class="section-title">WORDPRESS PLUGINS</h2>
-      
-      <div class="projects-grid">
-        <!-- Plugin 1: Hatnikotni Chat -->
-        <article class="project-card plugin-card">
-          <div class="project-tags">
-            <span class="tag tag-wp">WordPress</span>
-            <span class="tag">WhatsApp Analytics</span>
-          </div>
-          <h3>Hatnikotni Chat</h3>
-          <p>Lightweight WhatsApp contact routing with consent-aware first-party interaction analytics and UTM campaign attribution.</p>
-          <span class="status-badge">In Active Development</span>
-        </article>
-
-        <!-- Plugin 2: Hatnikotni Jelajah Cuaca -->
-        <article class="project-card plugin-card">
-          <div class="project-tags">
-            <span class="tag tag-wp">WordPress</span>
-            <span class="tag">Malaysia API</span>
-          </div>
-          <h3>Hatnikotni Jelajah Cuaca</h3>
-          <p>WordPress weather and location engine exclusively for Malaysia, using localized weather data and Malaysian location services.</p>
-          <span class="status-badge">In Active Development</span>
-        </article>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about-section">
-      <h2 class="section-title">ABOUT</h2>
-      <p>Hatnikotni Ventures is an independent digital studio focused on crafting web experiences, practical tools, WordPress software, and AI-driven applications.</p>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <p>&copy; {new Date().getFullYear()} Hatnikotni Ventures. All rights reserved.</p>
-    </footer>
+        </div>
+        <p class="copyright">&copy; {new Date().getFullYear()} Hatnikotni Ventures. All rights reserved.</p>
+      </footer>
+    </main>
 
     <!-- Floating Back to Top Button -->
     <a href="#top" id="backToTop" class="back-to-top" aria-label="Back to top">
       &uarr;
     </a>
-  </main>
+  </div>
 </Layout>
 
 <script>
-  // Logik tunjuk/sembunyi butang scroll berdasarkan kedudukan skrin
   const backToTopBtn = document.getElementById('backToTop');
-  
   if (backToTopBtn) {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 300) {
@@ -122,61 +141,118 @@ import Layout from '../layouts/Layout.astro';
 </script>
 
 <style>
-  /* Enable smooth scrolling */
+  /* Smooth Scrolling */
   html {
     scroll-behavior: smooth;
   }
 
-  /* Base Styles & Layout */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 3rem;
+  /* Global Midnight Grid Theme */
+  :global(body) {
+    background-color: #070a12 !important;
+    color: #e2e8f0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
   }
 
-  .logo-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
+  .page-container {
+    min-height: 100vh;
+    padding: 2rem 1.5rem;
+    background-image: 
+      linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+    background-size: 36px 36px;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
+  /* Layout Asimetri (Split Screen di Desktop) */
+  @media (min-width: 1024px) {
+    .page-container {
+      display: flex;
+      gap: 5rem;
+      padding: 4rem 2rem;
+    }
+
+    .sidebar {
+      width: 280px;
+      flex-shrink: 0;
+    }
+
+    .sidebar-inner {
+      position: sticky;
+      top: 4rem;
+    }
+
+    .main-content {
+      flex-grow: 1;
+    }
+  }
+
+  /* Sidebar Elements */
   .logo-img {
     height: 48px;
     width: auto;
     object-fit: contain;
+    margin-bottom: 1.5rem;
+  }
+
+  .sidebar-bio {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .nav a {
-    color: #4b5563;
+    color: #64748b;
     text-decoration: none;
-    margin-left: 1.5rem;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
   }
 
   .nav a:hover {
-    color: #111827;
+    color: #38bdf8;
   }
 
   /* Hero Section */
   .hero {
-    margin-bottom: 5rem;
+    margin-bottom: 4.5rem;
   }
 
-  .hero h1 {
+  .hero-title {
     font-size: 2.75rem;
-    font-weight: 800;
+    font-weight: 900;
     line-height: 1.1;
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    margin-bottom: 1.25rem;
   }
 
-  .hero p {
-    font-size: 1.125rem;
-    color: #4b5563;
+  @media (min-width: 768px) {
+    .hero-title {
+      font-size: 3.5rem;
+    }
+  }
+
+  .highlight {
+    color: #38bdf8;
+    text-shadow: 0 0 20px rgba(56, 189, 248, 0.35);
+  }
+
+  .hero-desc {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    line-height: 1.6;
     max-width: 580px;
     margin-bottom: 2rem;
-    line-height: 1.6;
   }
 
   .hero-buttons {
@@ -185,51 +261,70 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .btn {
-    display: inline-block;
-    padding: 0.75rem 1.25rem;
-    border-radius: 6px;
-    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
     text-decoration: none;
     font-size: 0.95rem;
+    transition: all 0.2s ease;
   }
 
   .btn-primary {
-    background-color: #2563eb;
+    background-color: #0284c7;
     color: #ffffff;
+    box-shadow: 0 0 15px rgba(2, 132, 199, 0.4);
+  }
+
+  .btn-primary:hover {
+    background-color: #38bdf8;
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.6);
   }
 
   .btn-secondary {
-    border: 1px solid #d1d5db;
-    color: #111827;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #e2e8f0;
   }
 
-  /* Section Common */
-  .section-title {
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: #6b7280;
-    margin-bottom: 1.5rem;
+  .btn-secondary:hover {
+    border-color: #38bdf8;
+    color: #38bdf8;
   }
 
-  /* Projects & Plugins Grid */
-  .projects-section {
+  /* Section Titles */
+  .content-section {
     margin-bottom: 4rem;
   }
 
+  .section-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #38bdf8;
+    margin-bottom: 1.75rem;
+  }
+
+  /* Projects & Plugins Grid */
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
   }
 
   .project-card {
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
     padding: 1.75rem;
-    background-color: #ffffff;
+    backdrop-filter: blur(8px);
     display: flex;
     flex-direction: column;
+    transition: all 0.3s ease;
+  }
+
+  .project-card:hover {
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.12);
+    transform: translateY(-3px);
   }
 
   .project-tags {
@@ -239,26 +334,35 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .tag {
-    background-color: #f3f4f6;
-    color: #4b5563;
+    background: rgba(255, 255, 255, 0.05);
+    color: #94a3b8;
     font-size: 0.75rem;
-    padding: 0.25rem 0.5rem;
+    padding: 0.25rem 0.6rem;
     border-radius: 4px;
-    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .tag-ai {
+    background: rgba(168, 85, 247, 0.15);
+    color: #c084fc;
+    border-color: rgba(168, 85, 247, 0.2);
   }
 
   .tag-wp {
-    background-color: #eff6ff;
-    color: #1d4ed8;
+    background: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+    border-color: rgba(56, 189, 248, 0.2);
   }
 
   .project-card h3 {
     font-size: 1.25rem;
+    color: #ffffff;
+    margin-top: 0;
     margin-bottom: 0.5rem;
   }
 
   .project-card p {
-    color: #4b5563;
+    color: #94a3b8;
     font-size: 0.95rem;
     line-height: 1.5;
     margin-bottom: 1.5rem;
@@ -266,62 +370,109 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .project-link {
-    color: #2563eb;
+    color: #38bdf8;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.95rem;
   }
 
+  /* Live Pulsing Badge */
   .status-badge {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #059669;
-    background-color: #ecfdf5;
-    padding: 0.35rem 0.65rem;
-    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #34d399;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
     width: fit-content;
   }
 
-  /* About & Footer */
-  .about-section {
-    border-top: 1px solid #f3f4f6;
-    padding-top: 3rem;
-    margin-bottom: 4rem;
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #10b981;
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 0 rgba(16, 185, 129, 0.4);
+    animation: pulse 1.8s infinite;
   }
 
-  .about-section p {
-    color: #4b5563;
-    line-height: 1.6;
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+  }
+
+  .about-text {
+    color: #94a3b8;
+    line-height: 1.7;
     max-width: 600px;
   }
 
+  /* Local Identity Footer */
   .footer {
-    border-top: 1px solid #f3f4f6;
-    padding-top: 2rem;
-    color: #9ca3af;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 2.5rem;
+    margin-top: 4rem;
+  }
+
+  .local-badge {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    padding: 1.25rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-logo {
+    height: 36px;
+    width: auto;
+  }
+
+  .badge-title {
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #38bdf8;
+  }
+
+  .badge-sub {
+    font-size: 0.75rem;
+    color: #64748b;
+  }
+
+  .copyright {
+    color: #64748b;
     font-size: 0.85rem;
   }
 
-  /* Floating Back to Top Button Styles */
+  /* Back To Top Button */
   .back-to-top {
     position: fixed;
-    bottom: 1.75rem;
-    right: 1.75rem;
-    background-color: #111827;
+    bottom: 2rem;
+    right: 2rem;
+    background: #0284c7;
     color: #ffffff;
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: bold;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 15px rgba(2, 132, 199, 0.5);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.2s ease, background-color 0.2s ease;
+    transition: all 0.3s ease;
     z-index: 99;
   }
 
@@ -331,7 +482,7 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .back-to-top:hover {
-    background-color: #2563eb;
-    transform: translateY(-2px);
+    background: #38bdf8;
+    transform: translateY(-3px);
   }
 </style>
