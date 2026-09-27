@@ -48,26 +48,33 @@
         <h2 class="section-title">FEATURED PROJECTS</h2>
         <div class="grid-container">
           
-          <!-- Card 1 -->
-          <div class="card">
-            <div class="card-tags">
-              <span class="tag">Directory</span>
-              <span class="tag">Travel Guide</span>
+          <!-- Card 1: Discover Perlis (dengan Imej) -->
+          <div class="card card-with-image">
+            <div class="card-image-container">
+              <img src="/jp-bg.jpg" alt="Pemandangan Sawah dan Bukit Perlis" class="card-img" />
             </div>
-            <h3>Discover Perlis</h3>
-            <p>A modern travel guide and local business directory designed to help visitors discover the best of Perlis with confidence.</p>
-            <a href="#" class="card-link">Visit Discover Perlis →</a>
+            <div class="card-body">
+              <div class="card-tags">
+                <span class="tag">Directory</span>
+                <span class="tag">Travel Guide</span>
+              </div>
+              <h3>Discover Perlis</h3>
+              <p>A modern travel guide and local business directory designed to help visitors discover the best of Perlis with confidence.</p>
+              <a href="#" class="card-link">Visit Discover Perlis →</a>
+            </div>
           </div>
 
           <!-- Card 2 -->
           <div class="card">
-            <div class="card-tags">
-              <span class="tag">AI Powered</span>
-              <span class="tag">Smart Assistant</span>
+            <div class="card-body">
+              <div class="card-tags">
+                <span class="tag">AI Powered</span>
+                <span class="tag">Smart Assistant</span>
+              </div>
+              <h3>Perlis AI Travel Planner</h3>
+              <p>An intelligent AI assistant that instantly generates customized per-day itineraries and travel recommendations for Perlis visitors.</p>
+              <a href="#" class="card-link">Try AI Planner →</a>
             </div>
-            <h3>Perlis AI Travel Planner</h3>
-            <p>An intelligent AI assistant that instantly generates customized per-day itineraries and travel recommendations for Perlis visitors.</p>
-            <a href="#" class="card-link">Try AI Planner →</a>
           </div>
 
         </div>
@@ -80,24 +87,28 @@
           
           <!-- Card 3 -->
           <div class="card">
-            <div class="card-tags">
-              <span class="tag">WordPress</span>
-              <span class="tag">WhatsApp Analytics</span>
+            <div class="card-body">
+              <div class="card-tags">
+                <span class="tag">WordPress</span>
+                <span class="tag">WhatsApp Analytics</span>
+              </div>
+              <h3>Hatnikotni Chat</h3>
+              <p>Lightweight WhatsApp contact routing with consent-aware first-party interaction analytics and UTM campaign attribution.</p>
+              <a href="#" class="card-link">View Plugin →</a>
             </div>
-            <h3>Hatnikotni Chat</h3>
-            <p>Lightweight WhatsApp contact routing with consent-aware first-party interaction analytics and UTM campaign attribution.</p>
-            <a href="#" class="card-link">View Plugin →</a>
           </div>
 
           <!-- Card 4 -->
           <div class="card">
-            <div class="card-tags">
-              <span class="tag">WordPress</span>
-              <span class="tag">Malaysia API</span>
+            <div class="card-body">
+              <div class="card-tags">
+                <span class="tag">WordPress</span>
+                <span class="tag">Malaysia API</span>
+              </div>
+              <h3>Hatnikotni Jelajah Cuaca</h3>
+              <p>WordPress weather and location engine exclusively for Malaysia, using localized weather data and Malaysian location services.</p>
+              <a href="#" class="card-link">View Plugin →</a>
             </div>
-            <h3>Hatnikotni Jelajah Cuaca</h3>
-            <p>WordPress weather and location engine exclusively for Malaysia, using localized weather data and Malaysian location services.</p>
-            <a href="#" class="card-link">View Plugin →</a>
           </div>
 
         </div>
@@ -106,14 +117,16 @@
       <!-- ABOUT SECTION -->
       <section id="about" class="content-section about-section">
         <h2 class="section-title">ABOUT HATNIKOTNI</h2>
-        <div class="about-content card">
-          <h3>Independent Digital Studio</h3>
-          <p>
-            Hatnikotni is focused on developing clean, efficient, and user-centric digital tools. We believe in software that does exactly what it needs to do without unnecessary bloat.
-          </p>
-          <p>
-            From specialized WordPress plugins that solve local problems to AI-driven applications, our goal is to build products that are truly useful for everyday workflows.
-          </p>
+        <div class="card">
+          <div class="card-body about-content">
+            <h3>Independent Digital Studio</h3>
+            <p>
+              Hatnikotni is focused on developing clean, efficient, and user-centric digital tools. We believe in software that does exactly what it needs to do without unnecessary bloat.
+            </p>
+            <p>
+              From specialized WordPress plugins that solve local problems to AI-driven applications, our goal is to build products that are truly useful for everyday workflows.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -134,7 +147,7 @@
      ========================================= */
   :root {
     --bg-color: #0b0f19;       /* Latar gelap utama tapak web */
-    --card-bg: #111927;        /* Warna latar kad (biru kelabu gelap) memadankan mockup */
+    --card-bg: #111927;        /* Warna latar kad (biru kelabu gelap) */
     --text-muted: #9ca3af;     /* Warna teks perenggan */
     --text-light: #f3f4f6;     /* Warna teks putih tajuk */
     --accent-blue: #0ea5e9;    /* Warna biru highlight */
@@ -174,7 +187,7 @@
 
   .logo-img {
     width: 100%;
-    max-width: 180px; /* Saiz seimbang dengan teks menu */
+    max-width: 180px;
     height: auto;
     object-fit: contain;
     display: block;
@@ -289,19 +302,44 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 25px;
+    align-items: start;
   }
 
   .card {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    padding: 30px;
+    overflow: hidden; /* Memastikan imej tidak terkeluar dari sempadan berlekuk kad */
     transition: transform 0.2s, border-color 0.2s;
   }
 
   .card:hover {
     transform: translateY(-5px);
     border-color: #374151;
+  }
+
+  /* Gaya Bekas Imej Kad Projek */
+  .card-image-container {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover .card-img {
+    transform: scale(1.04);
+  }
+
+  .card-body {
+    padding: 30px;
   }
 
   .card-tags {
@@ -375,7 +413,7 @@
     .header-container {
       padding: 25px 5%;
       flex-direction: column;
-      align-items: center; /* Memastikan logo berada di tengah */
+      align-items: center;
       gap: 20px;
     }
 
@@ -386,7 +424,7 @@
     .nav-links {
       width: 100%;
       flex-direction: row;
-      justify-content: center; /* Menu berderet melintang di tengah bawah logo */
+      justify-content: center;
       gap: 25px;
     }
 
