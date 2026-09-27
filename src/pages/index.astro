@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
-    <!-- FAVICON (Gunakan logo.png dari folder /public) -->
+    <!-- FAVICON -->
     <link rel="icon" type="image/png" href="/logo.png" />
     <link rel="apple-touch-icon" href="/logo.png" />
 
@@ -17,7 +17,7 @@
   <body>
     <!-- HEADER & NAVIGASI -->
     <header class="header-container">
-      <a href="/" class="logo-link">
+      <a href="#" class="logo-link" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
         <img src="/logo.png" alt="Hatnikotni Logo" class="logo-img" />
       </a>
       
@@ -53,14 +53,12 @@
         <h2 class="section-title">FEATURED PROJECTS</h2>
         <div class="grid-container">
           
-          <!-- Card 1: Discover Perlis (Tags & Tajuk Overlay di Atas Imej) -->
+          <!-- Card 1: Discover Perlis -->
           <div class="card card-with-image">
             <div class="card-image-container">
               <img src="/jp-bg.jpg" alt="Pemandangan Sawah dan Bukit Perlis" class="card-img" />
-              <!-- Lapisan Gelap untuk Keterangan Teks Jelas -->
               <div class="card-image-overlay"></div>
               
-              <!-- Kandungan Atas Imej (Tags di Puncak, Tajuk di Sempadan Bawah Imej) -->
               <div class="card-header-overlay">
                 <div class="card-tags">
                   <span class="tag tag-overlay">Directory</span>
@@ -150,6 +148,35 @@
         <p>&copy; 2026 Hatnikotni Independent Digital Studio. All rights reserved.</p>
       </div>
     </footer>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <button id="scrollToTopBtn" title="Ke atas">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+      </svg>
+    </button>
+
+    <!-- SCRIPT UNTUK BUTANG SCROLL TO TOP -->
+    <script>
+      const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+      // Tunjuk butang bila skrol ke bawah 300px
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          scrollToTopBtn.classList.add("show");
+        } else {
+          scrollToTopBtn.classList.remove("show");
+        }
+      });
+
+      // Skrol ke atas bila klik
+      scrollToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+    </script>
   </body>
 </html>
 
@@ -158,12 +185,17 @@
      1. ASAS & PEMBOLEH UBAH
      ========================================= */
   :root {
-    --bg-color: #0b0f19;       /* Latar gelap utama tapak web */
-    --card-bg: #111927;        /* Warna latar kad (biru kelabu gelap) */
-    --text-muted: #9ca3af;     /* Warna teks perenggan */
-    --text-light: #f3f4f6;     /* Warna teks putih tajuk */
-    --accent-blue: #0ea5e9;    /* Warna biru highlight */
-    --border-color: #1e293b;   /* Warna garisan sempadan kad */
+    --bg-color: #0b0f19;       
+    --card-bg: #111927;        
+    --text-muted: #9ca3af;     
+    --text-light: #f3f4f6;     
+    --accent-blue: #0ea5e9;    
+    --border-color: #1e293b;   
+  }
+
+  /* EFEK SMOOTH SCROLL KESELURUHAN HALAMAN */
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
@@ -179,7 +211,7 @@
   }
 
   /* =========================================
-     2. HEADER & LOGO (DESKTOP)
+     2. HEADER & LOGO
      ========================================= */
   .header-container {
     display: flex;
@@ -225,7 +257,7 @@
   }
 
   /* =========================================
-     3. KANDUNGAN UTAMA & HERO
+     3. HERO SECTION
      ========================================= */
   .main-content {
     max-width: 1200px;
@@ -298,6 +330,7 @@
      ========================================= */
   .content-section {
     margin-bottom: 80px;
+    scroll-margin-top: 100px; /* Offset supaya tajuk tak tertutup bila scroll */
   }
 
   .section-title {
@@ -331,7 +364,7 @@
     border-color: #374151;
   }
 
-  /* REKA LETAK OVERLAY IMEJ KAD DISCOVER PERLIS */
+  /* Kad Discover Perlis */
   .card-image-container {
     position: relative;
     width: 100%;
@@ -433,8 +466,10 @@
     text-decoration: underline;
   }
 
+  /* PERENGGAN ABOUT (DIRAPATKAN) */
   .about-content p {
-    margin-bottom: 15px;
+    margin-bottom: 8px; /* Dikurangkan daripada 15px */
+    line-height: 1.5;   
   }
   
   .about-content p:last-child {
@@ -442,7 +477,42 @@
   }
 
   /* =========================================
-     5. FOOTER
+     5. BUTANG SCROLL TO TOP
+     ========================================= */
+  #scrollToTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--card-bg);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, background-color 0.3s, color 0.3s;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  }
+
+  #scrollToTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #scrollToTopBtn:hover {
+    background-color: var(--accent-blue);
+    color: white;
+    border-color: var(--accent-blue);
+  }
+
+  /* =========================================
+     6. FOOTER
      ========================================= */
   .footer-container {
     border-top: 1px solid var(--border-color);
@@ -460,7 +530,7 @@
   }
 
   /* =========================================
-     6. RESPONSIF / MOBILE VIEW (< 768px)
+     7. RESPONSIF / MOBILE VIEW (< 768px)
      ========================================= */
   @media (max-width: 768px) {
     .header-container {
@@ -496,6 +566,11 @@
     .btn {
       width: 100%;
       box-sizing: border-box;
+    }
+    
+    #scrollToTopBtn {
+      bottom: 20px;
+      right: 20px;
     }
   }
 </style>
