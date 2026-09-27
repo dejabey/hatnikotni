@@ -13,7 +13,6 @@
     <!-- HEADER & NAVIGASI -->
     <header class="header-container">
       <a href="/" class="logo-link">
-        <!-- Logo akan diambil dari folder /public -->
         <img src="/logo.png" alt="Hatnikotni Logo" class="logo-img" />
       </a>
       
@@ -28,6 +27,8 @@
 
     <!-- KANDUNGAN UTAMA -->
     <main class="main-content">
+      
+      <!-- HERO SECTION -->
       <section class="hero-section">
         <h1>SIMPLE IDEAS.<br/><span class="highlight">USEFUL PRODUCTS.</span></h1>
         
@@ -41,8 +42,67 @@
           <a href="#about" class="btn btn-outline">About Hatnikotni</a>
         </div>
       </section>
-      
-      <!-- Anda boleh masukkan komponen bahagian Kad Projek di bawah ini nanti -->
+
+      <!-- FEATURED PROJECTS -->
+      <section id="projects" class="content-section">
+        <h2 class="section-title">FEATURED PROJECTS</h2>
+        <div class="grid-container">
+          
+          <!-- Card 1 -->
+          <div class="card">
+            <div class="card-tags">
+              <span class="tag">Directory</span>
+              <span class="tag">Travel Guide</span>
+            </div>
+            <h3>Discover Perlis</h3>
+            <p>A modern travel guide and local business directory designed to help visitors discover the best of Perlis with confidence.</p>
+            <a href="#" class="card-link">Visit Discover Perlis →</a>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card">
+            <div class="card-tags">
+              <span class="tag">AI Powered</span>
+              <span class="tag">Smart Assistant</span>
+            </div>
+            <h3>Perlis AI Travel Planner</h3>
+            <p>An intelligent AI assistant that instantly generates customized per-day itineraries and travel recommendations for Perlis visitors.</p>
+            <a href="#" class="card-link">Try AI Planner →</a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- WORDPRESS PLUGINS -->
+      <section id="plugins" class="content-section">
+        <h2 class="section-title">WORDPRESS PLUGINS</h2>
+        <div class="grid-container">
+          
+          <!-- Card 3 -->
+          <div class="card">
+            <div class="card-tags">
+              <span class="tag">WordPress</span>
+              <span class="tag">WhatsApp Analytics</span>
+            </div>
+            <h3>Hatnikotni Chat</h3>
+            <p>Lightweight WhatsApp contact routing with consent-aware first-party interaction analytics and UTM campaign attribution.</p>
+            <a href="#" class="card-link">View Plugin →</a>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="card">
+            <div class="card-tags">
+              <span class="tag">WordPress</span>
+              <span class="tag">Malaysia API</span>
+            </div>
+            <h3>Hatnikotni Jelajah Cuaca</h3>
+            <p>WordPress weather and location engine exclusively for Malaysia, using localized weather data and Malaysian location services.</p>
+            <a href="#" class="card-link">View Plugin →</a>
+          </div>
+
+        </div>
+      </section>
+
     </main>
   </body>
 </html>
@@ -52,10 +112,12 @@
      1. ASAS & PEMBOLEH UBAH
      ========================================= */
   :root {
-    --bg-color: #0d1117;       /* Latar gelap charcoal */
-    --text-muted: #8b949e;     /* Teks kelabu */
-    --text-light: #ffffff;     /* Teks putih */
-    --accent-blue: #0099ff;    /* Warna butang dan highlight */
+    --bg-color: #0b0f19;       /* Latar gelap seakan imej rujukan */
+    --card-bg: #111827;        /* Warna latar kotak kad */
+    --text-muted: #9ca3af;     /* Warna teks kelabu */
+    --text-light: #ffffff;     /* Warna teks putih */
+    --accent-blue: #0ea5e9;    /* Warna biru muda (butang & highlight) */
+    --border-color: #1f2937;
   }
 
   body {
@@ -63,28 +125,35 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-muted);
-    /* Corak Grid Latar Belakang */
+    /* Corak Grid Latar Belakang Halus */
     background-image: 
-      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     background-size: 40px 40px;
+    line-height: 1.5;
   }
 
   /* =========================================
-     2. HEADER & LOGO (SUSUNAN BENTUK DESKTOP)
+     2. HEADER & LOGO (DESKTOP)
      ========================================= */
   .header-container {
     display: flex;
-    justify-content: space-between; /* Asingkan logo ke kiri, menu ke kanan */
+    justify-content: space-between;
     align-items: center;
     padding: 30px 10%;
     max-width: 1200px;
     margin: 0 auto;
   }
 
+  .logo-link {
+    display: flex;
+    align-items: center;
+    margin-top: 5px; /* Menurunkan sedikit logo jika ada padding lutsinar */
+  }
+
   .logo-img {
     width: 100%;
-    max-width: 200px; /* Saiz optimal Desktop */
+    max-width: 180px;
     height: auto;
     object-fit: contain;
     display: block;
@@ -92,7 +161,7 @@
 
   .nav-links {
     display: flex;
-    gap: 30px; /* Jarak mendatar antara teks menu */
+    gap: 35px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -101,6 +170,7 @@
   .nav-links a {
     text-decoration: none;
     color: var(--text-muted);
+    font-size: 0.95rem;
     font-weight: 500;
     transition: color 0.2s ease;
   }
@@ -110,12 +180,16 @@
   }
 
   /* =========================================
-     3. KANDUNGAN HERO
+     3. KANDUNGAN UTAMA & HERO
      ========================================= */
   .main-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 10%;
+    padding: 40px 10% 80px 10%;
+  }
+
+  .hero-section {
+    margin-bottom: 80px;
   }
 
   .hero-section h1 {
@@ -133,8 +207,8 @@
 
   .hero-text {
     font-size: 1.15rem;
-    line-height: 1.6;
-    max-width: 550px;
+    line-height: 1.7;
+    max-width: 600px;
     margin-bottom: 40px;
   }
 
@@ -149,7 +223,8 @@
     font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
-    transition: background-color 0.2s;
+    transition: all 0.2s;
+    text-align: center;
   }
 
   .btn-primary {
@@ -159,7 +234,7 @@
   }
 
   .btn-primary:hover {
-    background-color: #007acc;
+    background-color: #0284c7;
   }
 
   .btn-outline {
@@ -170,45 +245,116 @@
 
   .btn-outline:hover {
     border-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.05);
   }
 
   /* =========================================
-     4. RESPONSIF / MOBILE VIEW (< 768px)
+     4. KAD PROJEK & PLUGINS
+     ========================================= */
+  .content-section {
+    margin-bottom: 60px;
+  }
+
+  .section-title {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    margin-bottom: 25px;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+  }
+
+  .card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 30px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    border-color: #374151;
+  }
+
+  .card-tags {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .tag {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .card h3 {
+    color: var(--text-light);
+    font-size: 1.3rem;
+    margin: 0 0 15px 0;
+  }
+
+  .card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+  }
+
+  .card-link {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .card-link:hover {
+    text-decoration: underline;
+  }
+
+  /* =========================================
+     5. RESPONSIF / MOBILE VIEW (< 768px)
      ========================================= */
   @media (max-width: 768px) {
     .header-container {
-      padding: 20px 5%;
-      flex-direction: column; /* Ubah susunan dari melintang ke menegak */
-      align-items: flex-start; /* Tolak semua ke kiri */
+      padding: 25px 5%;
+      flex-direction: column;
+      align-items: center; /* Memastikan logo berada di tengah */
       gap: 20px;
     }
 
     .logo-img {
-      max-width: 130px; /* Kecilkan saiz logo di mobile supaya tidak makan ruang */
+      max-width: 140px; /* Kecilkan sedikit logo untuk mobile */
     }
 
     .nav-links {
       width: 100%;
-      flex-direction: row; /* Kekalkan menu melintang di bawah logo */
-      justify-content: flex-start;
-      gap: 20px;
-      font-size: 0.95rem;
+      flex-direction: row;
+      justify-content: center; /* Menu berderet melintang di tengah bawah logo */
+      gap: 25px;
     }
 
     .main-content {
-      padding: 20px 5%;
+      padding: 20px 5% 60px 5%;
     }
 
     .hero-section h1 {
-      font-size: 2.5rem; /* Kecilkan saiz tajuk utama di mobile */
+      font-size: 2.5rem;
     }
 
     .hero-buttons {
-      flex-direction: column; /* Susun butang atas dan bawah di skrin kecil */
+      flex-direction: column;
     }
 
     .btn {
-      text-align: center;
       width: 100%;
       box-sizing: border-box;
     }
