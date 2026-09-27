@@ -48,7 +48,7 @@
         </div>
       </section>
 
-      <!-- FEATURED PROJECTS (TAGS & TAJUK SEBARIS OVERLAY) -->
+      <!-- FEATURED PROJECTS -->
       <section id="projects" class="content-section">
         <h2 class="section-title">FEATURED PROJECTS</h2>
         <div class="grid-container">
@@ -107,20 +107,30 @@
         <h2 class="section-title">WORDPRESS PLUGINS</h2>
         <div class="grid-container">
           
-          <!-- Card 3 -->
-          <div class="card">
-            <div class="card-body">
-              <div class="card-tags">
-                <span class="tag">WordPress</span>
-                <span class="tag">WhatsApp Analytics</span>
+          <!-- Card 3: Hatnikotni Chat (Dikemas kini dengan reka letak Imej) -->
+          <div class="card card-with-image">
+            <div class="card-image-container">
+              <img src="/chat-bg.jpg" alt="Rangkaian Data Hatnikotni Chat" class="card-img" />
+              <!-- Lapisan Gelap untuk Keterangan Teks Jelas -->
+              <div class="card-image-overlay"></div>
+              
+              <!-- BEKAS UNTUK TAGS DAN TAJUK YANG SEBARIS -->
+              <div class="card-header-overlay-inline">
+                <div class="tags">
+                  <span class="tag tag-overlay">WordPress</span>
+                  <span class="tag tag-overlay">WhatsApp Analytics</span>
+                </div>
+                <h3 class="overlay-title">Hatnikotni Chat</h3>
               </div>
-              <h3>Hatnikotni Chat</h3>
+            </div>
+
+            <div class="card-body">
               <p>Lightweight WhatsApp contact routing with consent-aware first-party interaction analytics and UTM campaign attribution.</p>
               <a href="#" class="card-link">View Plugin →</a>
             </div>
           </div>
 
-          <!-- Card 4 -->
+          <!-- Card 4: Hatnikotni Jelajah Cuaca -->
           <div class="card">
             <div class="card-body">
               <div class="card-tags">
@@ -154,21 +164,21 @@
 
     </main>
 
-    <!-- FOOTER (DISERTAKAN KEMBALI) -->
+    <!-- FOOTER -->
     <footer class="footer-container">
       <div class="footer-content">
         <p>&copy; 2026 Hatnikotni Independent Digital Studio. All rights reserved.</p>
       </div>
     </footer>
 
-    <!-- SCROLL TO TOP BUTTON (DISERTAKAN KEMBALI) -->
+    <!-- SCROLL TO TOP BUTTON -->
     <button id="scrollToTopBtn" title="Ke atas">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
       </svg>
     </button>
 
-    <!-- KOD JAVASCRIPT UNTUK FUNGSI INTERAKTIF (DISERTAKAN KEMBALI) -->
+    <!-- KOD JAVASCRIPT UNTUK FUNGSI INTERAKTIF -->
     <script>
       const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
@@ -391,7 +401,7 @@
     border-color: #374151;
   }
 
-  /* REKA LETAK KAD FEATURED PROJECTS (TAGS & TAJUK SEBARIS) */
+  /* REKA LETAK KAD BERIMEJ (TAGS & TAJUK SEBARIS OVERLAY) */
   .card-image-container {
     position: relative;
     width: 100%;
@@ -431,9 +441,9 @@
     right: 20px;
     z-index: 10;
     display: flex;
-    flex-direction: row; /* Memastikan tags dan tajuk sebaris */
-    align-items: center; /* Selaraskan mengikut paksi silang */
-    justify-content: space-between; /* Jarakkan seimbang ke kiri dan kanan */
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: space-between; 
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
   }
 
@@ -443,14 +453,14 @@
     margin: 0;
   }
 
-  /* Tags dalam Featured Projects (Sebaris dengan tajuk) */
+  /* Tags dalam Kad Berimej (Sebaris dengan tajuk) */
   .card-header-overlay-inline .tags {
     display: flex;
-    gap: 8px; /* Jarak antara tags */
-    margin-right: 1.5rem; /* Jarak ke tajuk */
+    gap: 8px;
+    margin-right: 1.5rem; 
   }
 
-  /* Tags dalam WordPress Plugins */
+  /* Tags Standard (Untuk Kad Tanpa Imej) */
   .card-tags {
     display: flex;
     gap: 10px;
@@ -479,7 +489,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 1rem; /* Ruang untuk tajuk menindih */
+  }
+
+  /* Penambahan margin top khas jika menggunakan imej (untuk memberi ruang tajuk menindih) */
+  .card-with-image .card-body {
+    margin-top: 1rem;
   }
 
   .card h3 {
@@ -505,9 +519,9 @@
     text-decoration: underline;
   }
 
-  /* PERENGGAN ABOUT (DIRAPATKAN SEPERTI ARAHAN) */
+  /* PERENGGAN ABOUT (Kekal rapat) */
   .about-content p {
-    margin-bottom: 8px; /* Dikurangkan daripada 15px */
+    margin-bottom: 8px; 
     line-height: 1.5;   
   }
   
@@ -516,7 +530,7 @@
   }
 
   /* =========================================
-     5. BUTANG SCROLL TO TOP (DISERTAKAN KEMBALI)
+     5. BUTANG SCROLL TO TOP
      ========================================= */
   #scrollToTopBtn {
     position: fixed;
@@ -551,7 +565,7 @@
   }
 
   /* =========================================
-     6. FOOTER (DISERTAKAN KEMBALI)
+     6. FOOTER
      ========================================= */
   .footer-container {
     border-top: 1px solid var(--border-color);
