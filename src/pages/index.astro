@@ -1,221 +1,641 @@
-<!DOCTYPE html>
+---
+// src/pages/index.astro
+// Halaman Utama Hatnikotni Independent Digital Studio
+---
+
 <html lang="ms">
-<head>
+  <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Galeri Projek Hatnikotni</title>
-    <style>
-        /* ASAS & PEMBOLEH UBAH */
-        :root {
-            --bg-color: #f6f8fa;
-            --card-bg: #ffffff;
-            --text-main: #24292e;
-            --text-muted: #586069;
-            --tag-bg: #e1e4e8;
-            --tag-text: #24292e;
-            --accent-green: #2ecc71;
-            --accent-blue: #0ea5e9;
-            --border-radius: 12px;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
 
-        body {
-            margin: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
+    <title>Hatnikotni - Independent Digital Studio</title>
+  </head>
+  <body>
+    <!-- HEADER & NAVIGASI -->
+    <header class="header-container">
+      <a href="#" class="logo-link" id="logoLink">
+        <img src="/logo.png" alt="Hatnikotni Logo" class="logo-img" />
+      </a>
+      
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#plugins">Plugins</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+    </header>
 
-        /* STRUKTUR UTAMA */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+    <!-- KANDUNGAN UTAMA -->
+    <main class="main-content">
+      
+      <!-- HERO SECTION -->
+      <section class="hero-section">
+        <h1>SIMPLE IDEAS.<br/><span class="highlight">USEFUL PRODUCTS.</span></h1>
+        
+        <p class="hero-text">
+          Hatnikotni creates independent digital products, AI tools, and WordPress plugins 
+          that are simple, useful, and built to last.
+        </p>
+        
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">Explore Products</a>
+          <a href="#about" class="btn btn-outline">About Hatnikotni</a>
+        </div>
+      </section>
 
-        h1 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            color: var(--text-main);
-        }
+      <!-- FEATURED PROJECTS -->
+      <section id="projects" class="content-section">
+        <h2 class="section-title">FEATURED PROJECTS</h2>
+        <div class="grid-container">
+          
+          <!-- Card 1: Discover Perlis -->
+          <div class="card card-with-image">
+            <div class="card-image-container">
+              <img src="/jp-bg.jpg" alt="Pemandangan Sawah dan Bukit Perlis" class="card-img" />
+              <div class="card-image-overlay"></div>
+              
+              <div class="card-header-overlay-inline">
+                <div class="tags">
+                  <span class="tag tag-overlay">Directory</span>
+                  <span class="tag tag-overlay">Travel Guide</span>
+                </div>
+                <h3 class="overlay-title">Discover Perlis</h3>
+              </div>
+            </div>
 
-        /* GRID KAD PROJEK */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            align-items: stretch;
-        }
+            <div class="card-body">
+              <p>A modern travel guide and local business directory designed to help visitors discover the best of Perlis with confidence.</p>
+              <a href="#" class="card-link">Visit Discover Perlis →</a>
+            </div>
+          </div>
 
-        /* KAD STANDARD (CONTOH) */
-        .card {
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.2s, box-shadow 0.2s;
-            position: relative;
-        }
+          <!-- Card 2: Perlis AI Travel Planner -->
+          <div class="card card-with-image">
+            <div class="card-image-container">
+              <img src="/ai-travel-planner-bg.jpg" alt="Pelancong menggunakan Perlis AI Travel Planner" class="card-img" />
+              <div class="card-image-overlay"></div>
+              
+              <div class="card-header-overlay-inline">
+                <div class="tags">
+                  <span class="tag tag-overlay">AI Powered</span>
+                  <span class="tag tag-overlay">Smart Assistant</span>
+                </div>
+                <h3 class="overlay-title">Perlis AI Travel Planner</h3>
+              </div>
+            </div>
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
-        }
+            <div class="card-body">
+              <p>An intelligent AI assistant that instantly generates customized per-day itineraries and travel recommendations for Perlis visitors.</p>
+              <a href="#" class="card-link">Try AI Planner →</a>
+            </div>
+          </div>
 
-        /* SUSUN LETAK TAGS & TAJUK KONSIKSTEN */
-        .card-header {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 20px;
-        }
+        </div>
+      </section>
 
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 15px;
-        }
+      <!-- WORDPRESS PLUGINS -->
+      <section id="plugins" class="content-section">
+        <h2 class="section-title">WORDPRESS PLUGINS</h2>
+        <div class="grid-container">
+          
+          <!-- Card 3: Hatnikotni Chat -->
+          <div class="card card-with-image">
+            <div class="card-image-container">
+              <img src="/chat-bg.jpg" alt="Rangkaian Data Hatnikotni Chat" class="card-img" />
+              <div class="card-image-overlay"></div>
+              
+              <div class="card-header-overlay-inline">
+                <div class="tags">
+                  <span class="tag tag-overlay">WordPress</span>
+                  <span class="tag tag-overlay">WhatsApp Analytics</span>
+                </div>
+                <h3 class="overlay-title">Hatnikotni Chat</h3>
+              </div>
+            </div>
 
-        .tag {
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 4px;
-            background-color: var(--tag-bg);
-            color: var(--tag-text);
-            text-transform: uppercase;
-        }
+            <div class="card-body">
+              <p>Lightweight WhatsApp contact routing with consent-aware first-party interaction analytics and UTM campaign attribution.</p>
+              <a href="#" class="card-link">View Plugin →</a>
+            </div>
+          </div>
 
-        .card-title {
-            font-size: 1.35rem;
-            margin: 0;
-            color: var(--text-main);
-        }
+          <!-- Card 4: Hatnikotni Jelajah Cuaca (Dikemas kini dengan Imej jelajah-cuaca-bg.jpg) -->
+          <div class="card card-with-image">
+            <div class="card-image-container">
+              <img src="/jelajah-cuaca-bg.jpg" alt="Antara Muka Hatnikotni Jelajah Cuaca" class="card-img" />
+              <div class="card-image-overlay"></div>
+              
+              <div class="card-header-overlay-inline">
+                <div class="tags">
+                  <span class="tag tag-overlay">WordPress</span>
+                  <span class="tag tag-overlay">Malaysia API</span>
+                </div>
+                <h3 class="overlay-title">Hatnikotni Jelajah Cuaca</h3>
+              </div>
+            </div>
 
-        /* KETERANGAN PROJEK */
-        .card-body p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 25px;
-            flex-grow: 1;
-        }
+            <div class="card-body">
+              <p>WordPress weather and location engine exclusively for Malaysia, using localized weather data and Malaysian location services.</p>
+              <a href="#" class="card-link">View Plugin →</a>
+            </div>
+          </div>
 
-        /* PAUTAN JELAJAH */
-        .card-link {
-            color: var(--accent-blue);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            position: absolute;
-            bottom: 30px;
-            right: 30px;
-        }
+        </div>
+      </section>
 
-        .card-link:hover {
-            text-decoration: underline;
-        }
-
-        /* KAD ISTIMEWA: HATNIKOTNI JELAJAH CUACA */
-        /* Menggunakan imej yang dijana 'jelajah-cuaca-bg.jpg' */
-        .card-plugin {
-            background-image: url('jelajah-cuaca-bg.jpg'); /* Nama imej yang betul */
-            background-size: cover;
-            background-position: center;
-            color: #ffffff;
-            border: none;
-        }
-
-        /* Kemaskini warna teks untuk latar gelap */
-        .card-plugin .card-title,
-        .card-plugin .tag,
-        .card-plugin .card-body p,
-        .card-plugin .card-link {
-            color: #ffffff;
-        }
-
-        /* Penyesuaian tag untuk latar gelap */
-        .card-plugin .tag {
-            background-color: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        /* Pautan berbeza untuk palam istimewa */
-        .card-plugin .card-link {
-            color: var(--accent-green);
-        }
-
-        /* FOOTER SIMPEL */
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            border-top: 1px solid var(--tag-bg);
-            margin-top: 60px;
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <h1>GALERI PROJEK HATNIKOTNI</h1>
-
-    <div class="grid">
-        <!-- Kad 1: Contoh Projek Lain -->
+      <!-- ABOUT SECTION -->
+      <section id="about" class="content-section about-section">
+        <h2 class="section-title">ABOUT HATNIKOTNI</h2>
         <div class="card">
-            <div class="card-header">
-                <div class="tags">
-                    <span class="tag">WordPress</span>
-                    <span class="tag">Analitis</span>
-                </div>
-                <h3 class="card-title">Hatnikotni Chat</h3>
-            </div>
-            <div class="card-body">
-                <p>Ringkas dan pantas. Palam WordPress untuk menjejajali dan mengoptimumkan interaksi sembang pelanggan.</p>
-            </div>
-            <a href="#" class="card-link">Jelajah →</a>
+          <div class="card-body about-content">
+            <h3>Independent Digital Studio</h3>
+            <p>
+              Hatnikotni is focused on developing clean, efficient, and user-centric digital tools. We believe in software that does exactly what it needs to do without unnecessary bloat.
+            </p>
+            <p>
+              From specialized WordPress plugins that solve local problems to AI-driven applications, our goal is to build products that are truly useful for everyday workflows.
+            </p>
+          </div>
         </div>
+      </section>
 
-        <!-- Kad 2: HATNIKOTNI JELAJAH CUACA (DENGAN IMEJ LATAR BELAKANG) -->
-        <div class="card card-with-image card-plugin">
-            <div class="card-header">
-                <div class="tags">
-                    <span class="tag tag-overlay">WordPress</span>
-                    <span class="tag tag-overlay">Malaysia API</span>
-                </div>
-                <h3 class="card-title overlay-title">Hatnikotni Jelajah Cuaca</h3>
-            </div>
-            <div class="card-body">
-                <p>Palam WordPress yang direka khas untuk Malaysia. Memanfaatkan data lokasi dan cuaca setempat untuk hasil yang tepat dan relevan.</p>
-            </div>
-            <a href="#" class="card-link card-plugin-link">Jelajah →</a>
-        </div>
+    </main>
 
-        <!-- Kad 3: Contoh Projek Lain -->
-        <div class="card">
-            <div class="card-header">
-                <div class="tags">
-                    <span class="tag">AI</span>
-                    <span class="tag">Produktif</span>
-                </div>
-                <h3 class="card-title">Hatnikotni Penjana Teks</h3>
-            </div>
-            <div class="card-body">
-                <p>Tingkatkan produktiviti dengan AI. Alat untuk menjana teks, draf, dan idea kreatif dengan cepat.</p>
-            </div>
-            <a href="#" class="card-link">Jelajah →</a>
-        </div>
+    <!-- FOOTER -->
+    <footer class="footer-container">
+      <div class="footer-content">
+        <p>&copy; 2026 Hatnikotni Independent Digital Studio. All rights reserved.</p>
+      </div>
+    </footer>
 
-    </div>
-</div>
+    <!-- SCROLL TO TOP BUTTON -->
+    <button id="scrollToTopBtn" title="Ke atas">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+      </svg>
+    </button>
 
-<footer>
-    <p>&copy; 2026 Hatnikotni Independent Digital Studio. Semua hak terpelihara.</p>
-</footer>
+    <!-- SCRIPT INTERAKTIF (TYPESCRIPT STRICT COMPLIANT) -->
+    <script>
+      const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+      const logoLink = document.getElementById("logoLink");
 
-</body>
+      // Skrol ke atas bila logo diklik
+      if (logoLink) {
+        logoLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+
+      // Tunjuk butang bila skrol ke bawah 300px
+      window.addEventListener("scroll", () => {
+        if (scrollToTopBtn) {
+          if (window.scrollY > 300) {
+            scrollToTopBtn.classList.add("show");
+          } else {
+            scrollToTopBtn.classList.remove("show");
+          }
+        }
+      });
+
+      // Skrol ke atas bila butang diklik
+      if (scrollToTopBtn) {
+        scrollToTopBtn.addEventListener("click", () => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+        });
+      }
+
+      // Smooth scroll untuk pautan navigasi internal
+      document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e: MouseEvent) {
+          e.preventDefault();
+          const target = e.currentTarget as HTMLAnchorElement | null;
+          const targetId = target ? target.getAttribute("href") : null;
+          
+          if (targetId && targetId !== "#") {
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({
+                behavior: "smooth"
+              });
+            }
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
+
+<style>
+  /* =========================================
+     1. ASAS & PEMBOLEH UBAH
+     ========================================= */
+  :root {
+    --bg-color: #0b0f19;       
+    --card-bg: #111927;        
+    --text-muted: #9ca3af;     
+    --text-light: #f3f4f6;     
+    --accent-blue: #0ea5e9;    
+    --border-color: #1e293b;   
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-muted);
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    line-height: 1.6;
+  }
+
+  /* =========================================
+     2. HEADER & LOGO
+     ========================================= */
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    margin-top: 5px; 
+    text-decoration: none;
+  }
+
+  .logo-img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--text-light);
+  }
+
+  /* =========================================
+     3. HERO SECTION
+     ========================================= */
+  .main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 10% 40px 10%;
+  }
+
+  .hero-section {
+    margin-bottom: 80px;
+  }
+
+  .hero-section h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    color: var(--text-light);
+    margin-top: 20px;
+    margin-bottom: 25px;
+    letter-spacing: -1px;
+  }
+
+  .hero-section .highlight {
+    color: var(--accent-blue);
+  }
+
+  .hero-text {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    max-width: 600px;
+    margin-bottom: 40px;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 15px;
+  }
+
+  .btn {
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    text-align: center;
+  }
+
+  .btn-primary {
+    background-color: var(--accent-blue);
+    color: #ffffff;
+    border: none;
+  }
+
+  .btn-primary:hover {
+    background-color: #0284c7;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .btn-outline:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  /* =========================================
+     4. KAD & KANDUNGAN BERSEKSYEN
+     ========================================= */
+  .content-section {
+    margin-bottom: 80px;
+    scroll-margin-top: 100px;
+  }
+
+  .section-title {
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    font-weight: 600;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    align-items: stretch;
+  }
+
+  .card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    border-color: #374151;
+  }
+
+  /* REKA LETAK KAD BERIMEJ */
+  .card-image-container {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+  }
+
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover .card-img {
+    transform: scale(1.05);
+  }
+
+  .card-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(11, 15, 25, 0.3) 0%,
+      rgba(17, 25, 39, 0.95) 100%
+    );
+    z-index: 1;
+  }
+
+  .card-header-overlay-inline {
+    position: absolute;
+    bottom: -15px;
+    left: 20px;
+    right: 20px;
+    z-index: 10;
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: space-between; 
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  }
+
+  .overlay-title {
+    color: var(--text-light);
+    font-size: 1.35rem;
+    margin: 0;
+  }
+
+  .card-header-overlay-inline .tags {
+    display: flex;
+    gap: 8px;
+    margin-right: 1.5rem; 
+  }
+
+  .card-tags {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  .tag {
+    background-color: rgba(255, 255, 255, 0.06);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .tag-overlay {
+    background-color: rgba(11, 15, 25, 0.6);
+    backdrop-filter: blur(4px);
+    color: #e5e7eb;
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .card-body {
+    padding: 25px 30px 30px 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card-with-image .card-body {
+    margin-top: 1rem;
+  }
+
+  .card h3 {
+    color: var(--text-light);
+    font-size: 1.3rem;
+    margin: 0 0 15px 0;
+  }
+
+  .card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+  }
+
+  .card-link {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .card-link:hover {
+    text-decoration: underline;
+  }
+
+  .about-content p {
+    margin-bottom: 8px; 
+    line-height: 1.5;   
+  }
+  
+  .about-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* =========================================
+     5. BUTANG SCROLL TO TOP
+     ========================================= */
+  #scrollToTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--card-bg);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, background-color 0.3s, color 0.3s;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  }
+
+  #scrollToTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #scrollToTopBtn:hover {
+    background-color: var(--accent-blue);
+    color: white;
+    border-color: var(--accent-blue);
+  }
+
+  /* =========================================
+     6. FOOTER
+     ========================================= */
+  .footer-container {
+    border-top: 1px solid var(--border-color);
+    padding: 40px 10%;
+    margin-top: 20px;
+    background-color: rgba(11, 15, 25, 0.8);
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  /* =========================================
+     7. RESPONSIF / MOBILE VIEW (< 768px)
+     ========================================= */
+  @media (max-width: 768px) {
+    .header-container {
+      padding: 25px 5%;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo-img {
+      max-width: 140px; 
+    }
+
+    .nav-links {
+      width: 100%;
+      flex-direction: row;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .main-content {
+      padding: 20px 5% 40px 5%;
+    }
+
+    .hero-section h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero-buttons {
+      flex-direction: column;
+    }
+
+    .btn {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    #scrollToTopBtn {
+      bottom: 20px;
+      right: 20px;
+    }
+  }
+</style>
