@@ -1,161 +1,227 @@
 ---
 // src/pages/index.astro
 // Halaman Utama Hatnikotni Independent Digital Studio
-
-// Takrifkan data projek utama untuk fleksibiliti
-const featuredProjects = [
-  {
-    title: "Jelajah Perlis",
-    tags: ["Travel Guide", "Perlis"],
-    description: "Travel guide and local business directory designed to help visitors discover the best of Perlis.",
-    image: "/jp-bg.jpg", // Gantian fail imej anda
-    linkText: "Visit Jelajah Perlis",
-    linkUrl: "#visit-perlis",
-  },
-  {
-    title: "Perlis AI Travel Planner",
-    tags: ["AI Powered", "Smart Assistant"],
-    description: "An intelligent AI assistant that instantly generates customized per-day itineraries and travel recommendations.",
-    image: "/ai-travel-planner-bg.jpg", // Gantian fail imej anda
-    linkText: "Try AI Planner",
-    linkUrl: "#ai-planner",
-  },
-];
-
-// Takrifkan data plugin WordPress
-const wordpressPlugins = [
-  {
-    icon: "/icons/chat-icon.svg", // Anda perlu fail ikon atau teks placeholder
-    title: "Hatnikotni Chat",
-    description: "Lightweight WhatsApp contact routing with consent-aware first-party interaction analytics.",
-    linkText: "View Plugin",
-    linkUrl: "#chat-plugin",
-  },
-  {
-    icon: "/icons/weather-icon.svg",
-    title: "Hatnikotni Jelajah Cuaca",
-    description: "WordPress weather and location engine exclusively for Malaysia, using localized weather data and Malaysian location services.",
-    linkText: "View Plugin",
-    linkUrl: "#weather-plugin",
-  },
-];
 ---
 
 <html lang="ms">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>HATNIKOTNI | Simple Ideas. Useful Products.</title>
+    
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+
+    <title>Hatnikotni - Independent Digital Studio</title>
   </head>
   <body>
-    <!-- HEADER -->
+    <!-- HEADER & NAVIGASI -->
     <header class="header-container">
-      <a href="/" class="logo-link">
-        <span class="logo-text">HATNIKOTNI</span>
-        <span class="logo-studio">Independent Digital Studio</span>
+      <a href="#" class="logo-link" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+        <img src="/logo.png" alt="Hatnikotni Logo" class="logo-img" />
       </a>
-      <nav class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#logo">Logo</a>
-        <a href="#products">Products</a>
-        <a href="#contact">Contact</a>
-        <a href="#hatnikotni">Hatnikotni</a>
+      
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#plugins">Plugins</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
       </nav>
     </header>
 
-    <!-- MAIN CONTENT -->
+    <!-- KANDUNGAN UTAMA -->
     <main class="main-content">
+      
       <!-- HERO SECTION -->
       <section class="hero-section">
-        <h1 class="hero-title">
-          SIMPLE IDEAS.<br />
-          <span class="highlight">USEFUL PRODUCTS.</span>
-        </h1>
-        <p class="hero-intro">
-          Hatnikotni creates independent digital products, AI tools, and WordPress plugins that are simple, useful, and built to last.
+        <h1>SIMPLE IDEAS.<br/><span class="highlight">USEFUL PRODUCTS.</span></h1>
+        
+        <p class="hero-text">
+          Hatnikotni creates independent digital products, AI tools, and WordPress plugins 
+          that are simple, useful, and built to last.
         </p>
+        
         <div class="hero-buttons">
-          <a href="#products" class="btn btn-primary">Explore Products</a>
+          <a href="#projects" class="btn btn-primary">Explore Products</a>
           <a href="#about" class="btn btn-outline">About Hatnikotni</a>
         </div>
       </section>
 
-      <!-- FEATURED PROJECTS -->
-      <section class="projects-section">
+      <!-- FEATURED PROJECTS (TAGS & TAJUK SEBARIS OVERLAY) -->
+      <section id="projects" class="content-section">
         <h2 class="section-title">FEATURED PROJECTS</h2>
-        <div class="grid-container projects-grid">
-          {
-            featuredProjects.map((project) => (
-              <div class="card project-card">
-                {/* 1. TAGS DI ATAS SEKALI */}
+        <div class="grid-container">
+          
+          <!-- Card 1: Discover Perlis -->
+          <div class="card card-with-image">
+            <div class="card-image-container">
+              <img src="/jp-bg.jpg" alt="Pemandangan Sawah dan Bukit Perlis" class="card-img" />
+              <!-- Lapisan Gelap untuk Keterangan Teks Jelas -->
+              <div class="card-image-overlay"></div>
+              
+              <!-- BEKAS UNTUK TAGS DAN TAJUK YANG SEBARIS -->
+              <div class="card-header-overlay-inline">
                 <div class="tags">
-                  {project.tags.map((tag) => (
-                    <span class="tag">{tag}</span>
-                  ))}
+                  <span class="tag tag-overlay">Directory</span>
+                  <span class="tag tag-overlay">Travel Guide</span>
                 </div>
-
-                {/* 2. IMEJ */}
-                <div class="image-wrapper">
-                  <img src={project.image} alt={project.title} class="card-image" />
-                  <div class="image-overlay" />
-                  {/* 3. TAJUK ATAS SEDIKIT DARI SEMPADAN IMEJ */}
-                  <div class="title-overlay-wrapper">
-                    <h3 class="card-title">{project.title}</h3>
-                  </div>
-                </div>
-
-                {/* 4. KETERANGAN PROJEK */}
-                <div class="description-wrapper">
-                  <p class="card-description">{project.description}</p>
-                  <a href={project.linkUrl} class="card-link">{project.linkText} →</a>
-                </div>
+                <h3 class="overlay-title">Discover Perlis</h3>
               </div>
-            ))
-          }
+            </div>
+
+            <div class="card-body">
+              <p>A modern travel guide and local business directory designed to help visitors discover the best of Perlis with confidence.</p>
+              <a href="#" class="card-link">Visit Discover Perlis →</a>
+            </div>
+          </div>
+
+          <!-- Card 2: Perlis AI Travel Planner -->
+          <div class="card card-with-image">
+            <div class="card-image-container">
+              <img src="/ai-travel-planner-bg.jpg" alt="Pelancong menggunakan Perlis AI Travel Planner" class="card-img" />
+              <!-- Lapisan Gelap untuk Keterangan Teks Jelas -->
+              <div class="card-image-overlay"></div>
+              
+              <!-- BEKAS UNTUK TAGS DAN TAJUK YANG SEBARIS -->
+              <div class="card-header-overlay-inline">
+                <div class="tags">
+                  <span class="tag tag-overlay">AI Powered</span>
+                  <span class="tag tag-overlay">Smart Assistant</span>
+                </div>
+                <h3 class="overlay-title">Perlis AI Travel Planner</h3>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <p>An intelligent AI assistant that instantly generates customized per-day itineraries and travel recommendations for Perlis visitors.</p>
+              <a href="#" class="card-link">Try AI Planner →</a>
+            </div>
+          </div>
+
         </div>
       </section>
 
       <!-- WORDPRESS PLUGINS -->
-      <section class="plugins-section">
+      <section id="plugins" class="content-section">
         <h2 class="section-title">WORDPRESS PLUGINS</h2>
-        <div class="grid-container plugins-grid">
-          {
-            wordpressPlugins.map((plugin) => (
-              <div class="card plugin-card">
-                <div class="icon-wrapper">
-                  {/* Gunakan ikon SVG atau placeholder teks */}
-                  <span class="plugin-icon">ICON</span>
-                </div>
-                <h3 class="card-title">{plugin.title}</h3>
-                <p class="card-description">{plugin.description}</p>
-                <a href={plugin.linkUrl} class="card-link">{plugin.linkText} →</a>
+        <div class="grid-container">
+          
+          <!-- Card 3 -->
+          <div class="card">
+            <div class="card-body">
+              <div class="card-tags">
+                <span class="tag">WordPress</span>
+                <span class="tag">WhatsApp Analytics</span>
               </div>
-            ))
-          }
+              <h3>Hatnikotni Chat</h3>
+              <p>Lightweight WhatsApp contact routing with consent-aware first-party interaction analytics and UTM campaign attribution.</p>
+              <a href="#" class="card-link">View Plugin →</a>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="card">
+            <div class="card-body">
+              <div class="card-tags">
+                <span class="tag">WordPress</span>
+                <span class="tag">Malaysia API</span>
+              </div>
+              <h3>Hatnikotni Jelajah Cuaca</h3>
+              <p>WordPress weather and location engine exclusively for Malaysia, using localized weather data and Malaysian location services.</p>
+              <a href="#" class="card-link">View Plugin →</a>
+            </div>
+          </div>
+
         </div>
       </section>
+
+      <!-- ABOUT SECTION -->
+      <section id="about" class="content-section about-section">
+        <h2 class="section-title">ABOUT HATNIKOTNI</h2>
+        <div class="card">
+          <div class="card-body about-content">
+            <h3>Independent Digital Studio</h3>
+            <p>
+              Hatnikotni is focused on developing clean, efficient, and user-centric digital tools. We believe in software that does exactly what it needs to do without unnecessary bloat.
+            </p>
+            <p>
+              From specialized WordPress plugins that solve local problems to AI-driven applications, our goal is to build products that are truly useful for everyday workflows.
+            </p>
+          </div>
+        </div>
+      </section>
+
     </main>
 
-    <!-- FOOTER -->
+    <!-- FOOTER (DISERTAKAN KEMBALI) -->
     <footer class="footer-container">
       <div class="footer-content">
         <p>&copy; 2026 Hatnikotni Independent Digital Studio. All rights reserved.</p>
       </div>
     </footer>
+
+    <!-- SCROLL TO TOP BUTTON (DISERTAKAN KEMBALI) -->
+    <button id="scrollToTopBtn" title="Ke atas">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+      </svg>
+    </button>
+
+    <!-- KOD JAVASCRIPT UNTUK FUNGSI INTERAKTIF (DISERTAKAN KEMBALI) -->
+    <script>
+      const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+      // Tunjuk butang bila skrol ke bawah 300px
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          scrollToTopBtn.classList.add("show");
+        } else {
+          scrollToTopBtn.classList.remove("show");
+        }
+      });
+
+      // Skrol ke atas bila klik
+      scrollToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+
+      // Smooth scroll untuk pautan internal (nav links)
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    </script>
   </body>
 </html>
 
 <style>
   /* =========================================
-     1. ASAS & TEMA GELAP
+     1. ASAS & PEMBOLEH UBAH
      ========================================= */
   :root {
-    --bg-color: #0b0f19; /* Kelabu gelap, seakan visual rujukan */
-    --text-muted: #a1aab5;
-    --text-light: #ffffff;
-    --accent-blue: #0ea5e9;
-    --card-bg: #111927;
-    --border-color: #1e293b;
+    --bg-color: #0b0f19;       
+    --card-bg: #111927;        
+    --text-muted: #9ca3af;     
+    --text-light: #f3f4f6;     
+    --accent-blue: #0ea5e9;    
+    --border-color: #1e293b;   
+  }
+
+  /* EFEK SMOOTH SCROLL KESELURUHAN HALAMAN */
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
@@ -163,14 +229,15 @@ const wordpressPlugins = [
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-muted);
-    /* Corak Grid Latar Belakang Halus */
-    background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     background-size: 40px 40px;
+    line-height: 1.6;
   }
 
   /* =========================================
-     2. HEADER & NAVIGASI
+     2. HEADER & LOGO
      ========================================= */
   .header-container {
     display: flex;
@@ -183,24 +250,25 @@ const wordpressPlugins = [
 
   .logo-link {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    margin-top: 5px; 
     text-decoration: none;
-    color: var(--text-light);
   }
 
-  .logo-text {
-    font-size: 1.25rem;
-    font-weight: 700;
-  }
-
-  .logo-studio {
-    font-size: 0.75rem;
-    color: var(--text-muted);
+  .logo-img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    object-fit: contain;
+    display: block;
   }
 
   .nav-links {
     display: flex;
-    gap: 25px;
+    gap: 35px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
   .nav-links a {
@@ -208,6 +276,7 @@ const wordpressPlugins = [
     color: var(--text-muted);
     font-size: 0.95rem;
     font-weight: 500;
+    transition: color 0.2s ease;
   }
 
   .nav-links a:hover {
@@ -215,19 +284,19 @@ const wordpressPlugins = [
   }
 
   /* =========================================
-     3. KANDUNGAN UTAMA & HERO
+     3. HERO SECTION
      ========================================= */
   .main-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 10% 80px 10%;
+    padding: 40px 10% 40px 10%;
   }
 
   .hero-section {
     margin-bottom: 80px;
   }
 
-  .hero-title {
+  .hero-section h1 {
     font-size: 4rem;
     line-height: 1.1;
     color: var(--text-light);
@@ -236,11 +305,11 @@ const wordpressPlugins = [
     letter-spacing: -1px;
   }
 
-  .hero-title .highlight {
+  .hero-section .highlight {
     color: var(--accent-blue);
   }
 
-  .hero-intro {
+  .hero-text {
     font-size: 1.15rem;
     line-height: 1.7;
     max-width: 600px;
@@ -259,6 +328,7 @@ const wordpressPlugins = [
     font-weight: 600;
     text-decoration: none;
     transition: all 0.2s;
+    text-align: center;
   }
 
   .btn-primary {
@@ -286,28 +356,34 @@ const wordpressPlugins = [
      4. KAD & KANDUNGAN BERSEKSYEN
      ========================================= */
   .content-section {
-    margin-bottom: 60px;
+    margin-bottom: 80px;
+    scroll-margin-top: 100px; /* Offset supaya tajuk tak tertutup bila scroll */
   }
 
   .section-title {
-    font-size: 0.9rem;
-    letter-spacing: 2px;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
     color: var(--accent-blue);
     text-transform: uppercase;
     margin-bottom: 25px;
+    font-weight: 600;
   }
 
   .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 25px;
+    align-items: stretch;
   }
 
   .card {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 12px;
+    overflow: hidden;
     transition: transform 0.2s, border-color 0.2s;
+    display: flex;
+    flex-direction: column;
   }
 
   .card:hover {
@@ -315,75 +391,97 @@ const wordpressPlugins = [
     border-color: #374151;
   }
 
-  /* REKA LETAK KAD PROJEK (UTAMA) */
-  .project-card {
-    display: flex;
-    flex-direction: column;
+  /* REKA LETAK KAD FEATURED PROJECTS (TAGS & TAJUK SEBARIS) */
+  .card-image-container {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
   }
 
-  .tags {
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover .card-img {
+    transform: scale(1.05);
+  }
+
+  .card-image-overlay {
+    position: absolute;
+    inset: 0;
+    /* Gradient menggelapkan imej supaya teks pop */
+    background: linear-gradient(
+      to bottom,
+      rgba(11, 15, 25, 0.3) 0%,
+      rgba(17, 25, 39, 0.95) 100%
+    );
+    z-index: 1;
+  }
+
+  /* BEKAS FLEX UNTUK TAGS DAN TAJUK YANG SEBARIS (OVERLAY) */
+  .card-header-overlay-inline {
+    position: absolute;
+    bottom: -15px; /* Menindih sempadan imej/keterangan */
+    left: 20px;
+    right: 20px;
+    z-index: 10;
+    display: flex;
+    flex-direction: row; /* Memastikan tags dan tajuk sebaris */
+    align-items: center; /* Selaraskan mengikut paksi silang */
+    justify-content: space-between; /* Jarakkan seimbang ke kiri dan kanan */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  }
+
+  .overlay-title {
+    color: var(--text-light);
+    font-size: 1.35rem;
+    margin: 0;
+  }
+
+  /* Tags dalam Featured Projects (Sebaris dengan tajuk) */
+  .card-header-overlay-inline .tags {
+    display: flex;
+    gap: 8px; /* Jarak antara tags */
+    margin-right: 1.5rem; /* Jarak ke tajuk */
+  }
+
+  /* Tags dalam WordPress Plugins */
+  .card-tags {
     display: flex;
     gap: 10px;
-    padding: 20px 30px 0 30px;
-    margin-bottom: 1rem;
+    margin-bottom: 15px;
   }
 
   .tag {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.06);
     color: var(--text-muted);
     font-size: 0.75rem;
     padding: 4px 10px;
     border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  .image-wrapper {
-    position: relative;
-    overflow: hidden;
+  .tag-overlay {
+    background-color: rgba(11, 15, 25, 0.6);
+    backdrop-filter: blur(4px);
+    color: #e5e7eb;
+    border-color: rgba(255, 255, 255, 0.15);
   }
 
-  .card-image {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  .image-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, transparent 60%, var(--card-bg));
-  }
-
-  .title-overlay-wrapper {
-    position: absolute;
-    bottom: -15px; /* Menurunkan sedikit tajuk menindih imej/keterangan */
-    left: 15px;
-    right: 15px;
-    z-index: 10;
-  }
-
-  .description-wrapper {
+  .card-body {
     padding: 25px 30px 30px 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin-top: 1rem; /* Ruang untuk tajuk menindih */
   }
 
-  /* REKA LETAK KAD PLUGIN */
-  .plugin-card {
-    padding: 30px;
-    text-align: center;
-  }
-
-  .icon-wrapper {
-    margin-bottom: 20px;
-  }
-
-  .plugin-icon {
-    font-size: 0.8rem;
-    font-weight: bold;
-    color: var(--accent-blue);
-  }
-
-  /* GAYA TEKS KAD UMUM */
   .card h3 {
     color: var(--text-light);
     font-size: 1.3rem;
@@ -407,13 +505,59 @@ const wordpressPlugins = [
     text-decoration: underline;
   }
 
+  /* PERENGGAN ABOUT (DIRAPATKAN SEPERTI ARAHAN) */
+  .about-content p {
+    margin-bottom: 8px; /* Dikurangkan daripada 15px */
+    line-height: 1.5;   
+  }
+  
+  .about-content p:last-child {
+    margin-bottom: 0;
+  }
+
   /* =========================================
-     5. FOOTER
+     5. BUTANG SCROLL TO TOP (DISERTAKAN KEMBALI)
+     ========================================= */
+  #scrollToTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--card-bg);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, background-color 0.3s, color 0.3s;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  }
+
+  #scrollToTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #scrollToTopBtn:hover {
+    background-color: var(--accent-blue);
+    color: white;
+    border-color: var(--accent-blue);
+  }
+
+  /* =========================================
+     6. FOOTER (DISERTAKAN KEMBALI)
      ========================================= */
   .footer-container {
     border-top: 1px solid var(--border-color);
     padding: 40px 10%;
     margin-top: 20px;
+    background-color: rgba(11, 15, 25, 0.8);
   }
 
   .footer-content {
@@ -425,25 +569,32 @@ const wordpressPlugins = [
   }
 
   /* =========================================
-     6. RESPONSIF / MOBILE VIEW
+     7. RESPONSIF / MOBILE VIEW (< 768px)
      ========================================= */
   @media (max-width: 768px) {
     .header-container {
-      padding: 20px 5%;
+      padding: 25px 5%;
       flex-direction: column;
-      gap: 15px;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo-img {
+      max-width: 140px; 
     }
 
     .nav-links {
-      gap: 15px;
-      font-size: 0.85rem;
+      width: 100%;
+      flex-direction: row;
+      justify-content: center;
+      gap: 25px;
     }
 
     .main-content {
       padding: 20px 5% 40px 5%;
     }
 
-    .hero-title {
+    .hero-section h1 {
       font-size: 2.5rem;
     }
 
@@ -451,8 +602,14 @@ const wordpressPlugins = [
       flex-direction: column;
     }
 
-    .card h3 {
-      font-size: 1.15rem;
+    .btn {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    #scrollToTopBtn {
+      bottom: 20px;
+      right: 20px;
     }
   }
 </style>
