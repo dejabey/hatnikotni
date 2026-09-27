@@ -103,7 +103,28 @@
         </div>
       </section>
 
+      <!-- ABOUT SECTION -->
+      <section id="about" class="content-section about-section">
+        <h2 class="section-title">ABOUT HATNIKOTNI</h2>
+        <div class="about-content card">
+          <h3>Independent Digital Studio</h3>
+          <p>
+            Hatnikotni is focused on developing clean, efficient, and user-centric digital tools. We believe in software that does exactly what it needs to do without unnecessary bloat.
+          </p>
+          <p>
+            From specialized WordPress plugins that solve local problems to AI-driven applications, our goal is to build products that are truly useful for everyday workflows.
+          </p>
+        </div>
+      </section>
+
     </main>
+
+    <!-- FOOTER -->
+    <footer class="footer-container">
+      <div class="footer-content">
+        <p>&copy; 2026 Hatnikotni Independent Digital Studio. All rights reserved.</p>
+      </div>
+    </footer>
   </body>
 </html>
 
@@ -112,12 +133,12 @@
      1. ASAS & PEMBOLEH UBAH
      ========================================= */
   :root {
-    --bg-color: #0b0f19;       /* Latar gelap seakan imej rujukan */
-    --card-bg: #111827;        /* Warna latar kotak kad */
-    --text-muted: #9ca3af;     /* Warna teks kelabu */
-    --text-light: #ffffff;     /* Warna teks putih */
-    --accent-blue: #0ea5e9;    /* Warna biru muda (butang & highlight) */
-    --border-color: #1f2937;
+    --bg-color: #0b0f19;       /* Latar gelap utama tapak web */
+    --card-bg: #111927;        /* Warna latar kad (biru kelabu gelap) memadankan mockup */
+    --text-muted: #9ca3af;     /* Warna teks perenggan */
+    --text-light: #f3f4f6;     /* Warna teks putih tajuk */
+    --accent-blue: #0ea5e9;    /* Warna biru highlight */
+    --border-color: #1e293b;   /* Warna garisan sempadan kad */
   }
 
   body {
@@ -130,7 +151,7 @@
       linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     background-size: 40px 40px;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   /* =========================================
@@ -148,12 +169,12 @@
   .logo-link {
     display: flex;
     align-items: center;
-    margin-top: 5px; /* Menurunkan sedikit logo jika ada padding lutsinar */
+    margin-top: 5px; 
   }
 
   .logo-img {
     width: 100%;
-    max-width: 180px;
+    max-width: 180px; /* Saiz seimbang dengan teks menu */
     height: auto;
     object-fit: contain;
     display: block;
@@ -185,7 +206,7 @@
   .main-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 10% 80px 10%;
+    padding: 40px 10% 40px 10%;
   }
 
   .hero-section {
@@ -249,18 +270,19 @@
   }
 
   /* =========================================
-     4. KAD PROJEK & PLUGINS
+     4. KAD & KANDUNGAN BERSEKSYEN
      ========================================= */
   .content-section {
-    margin-bottom: 60px;
+    margin-bottom: 80px;
   }
 
   .section-title {
-    font-size: 0.9rem;
-    letter-spacing: 2px;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
     color: var(--accent-blue);
     text-transform: uppercase;
     margin-bottom: 25px;
+    font-weight: 600;
   }
 
   .grid-container {
@@ -294,7 +316,7 @@
     font-size: 0.75rem;
     padding: 4px 10px;
     border-radius: 4px;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.05);
   }
 
   .card h3 {
@@ -320,8 +342,34 @@
     text-decoration: underline;
   }
 
+  .about-content p {
+    margin-bottom: 15px;
+  }
+  
+  .about-content p:last-child {
+    margin-bottom: 0;
+  }
+
   /* =========================================
-     5. RESPONSIF / MOBILE VIEW (< 768px)
+     5. FOOTER
+     ========================================= */
+  .footer-container {
+    border-top: 1px solid var(--border-color);
+    padding: 40px 10%;
+    margin-top: 20px;
+    background-color: rgba(11, 15, 25, 0.8);
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  /* =========================================
+     6. RESPONSIF / MOBILE VIEW (< 768px)
      ========================================= */
   @media (max-width: 768px) {
     .header-container {
@@ -332,7 +380,7 @@
     }
 
     .logo-img {
-      max-width: 140px; /* Kecilkan sedikit logo untuk mobile */
+      max-width: 140px; 
     }
 
     .nav-links {
@@ -343,7 +391,7 @@
     }
 
     .main-content {
-      padding: 20px 5% 60px 5%;
+      padding: 20px 5% 40px 5%;
     }
 
     .hero-section h1 {
