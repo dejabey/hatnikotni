@@ -59,13 +59,14 @@
               <img src="/jp-bg.jpg" alt="Pemandangan Sawah dan Bukit Perlis" class="card-img" />
               <div class="card-image-overlay"></div>
               
-              <div class="card-header-overlay-inline">
-                <div class="tags">
-                  <span class="tag tag-overlay">Directory</span>
-                  <span class="tag tag-overlay">Travel Guide</span>
-                </div>
-                <h3 class="overlay-title">Discover Perlis</h3>
+              <!-- Tags di bahagian atas imej -->
+              <div class="card-tags-top">
+                <span class="tag tag-overlay">Directory</span>
+                <span class="tag tag-overlay">Travel Guide</span>
               </div>
+              
+              <!-- Tajuk di atas sempadan imej/keterangan -->
+              <h3 class="card-title-overlap">Discover Perlis</h3>
             </div>
 
             <div class="card-body">
@@ -80,13 +81,14 @@
               <img src="/ai-travel-planner-bg.jpg" alt="Pelancong menggunakan Perlis AI Travel Planner" class="card-img" />
               <div class="card-image-overlay"></div>
               
-              <div class="card-header-overlay-inline">
-                <div class="tags">
-                  <span class="tag tag-overlay">AI Powered</span>
-                  <span class="tag tag-overlay">Smart Assistant</span>
-                </div>
-                <h3 class="overlay-title">Perlis AI Travel Planner</h3>
+              <!-- Tags di bahagian atas imej -->
+              <div class="card-tags-top">
+                <span class="tag tag-overlay">AI Powered</span>
+                <span class="tag tag-overlay">Smart Assistant</span>
               </div>
+              
+              <!-- Tajuk di atas sempadan imej/keterangan -->
+              <h3 class="card-title-overlap">Perlis AI Travel Planner</h3>
             </div>
 
             <div class="card-body">
@@ -109,13 +111,14 @@
               <img src="/chat-bg.jpg" alt="Rangkaian Data Hatnikotni Chat" class="card-img" />
               <div class="card-image-overlay"></div>
               
-              <div class="card-header-overlay-inline">
-                <div class="tags">
-                  <span class="tag tag-overlay">WordPress</span>
-                  <span class="tag tag-overlay">WhatsApp Analytics</span>
-                </div>
-                <h3 class="overlay-title">Hatnikotni Chat</h3>
+              <!-- Tags di bahagian atas imej -->
+              <div class="card-tags-top">
+                <span class="tag tag-overlay">WordPress</span>
+                <span class="tag tag-overlay">WhatsApp Analytics</span>
               </div>
+              
+              <!-- Tajuk di atas sempadan imej/keterangan -->
+              <h3 class="card-title-overlap">Hatnikotni Chat</h3>
             </div>
 
             <div class="card-body">
@@ -124,19 +127,20 @@
             </div>
           </div>
 
-          <!-- Card 4: Hatnikotni Jelajah Cuaca (Dikemas kini dengan Imej jelajah-cuaca-bg.jpg) -->
+          <!-- Card 4: Hatnikotni Jelajah Cuaca -->
           <div class="card card-with-image">
             <div class="card-image-container">
               <img src="/jelajah-cuaca-bg.jpg" alt="Antara Muka Hatnikotni Jelajah Cuaca" class="card-img" />
               <div class="card-image-overlay"></div>
               
-              <div class="card-header-overlay-inline">
-                <div class="tags">
-                  <span class="tag tag-overlay">WordPress</span>
-                  <span class="tag tag-overlay">Malaysia API</span>
-                </div>
-                <h3 class="overlay-title">Hatnikotni Jelajah Cuaca</h3>
+              <!-- Tags di bahagian atas imej -->
+              <div class="card-tags-top">
+                <span class="tag tag-overlay">WordPress</span>
+                <span class="tag tag-overlay">Malaysia API</span>
               </div>
+              
+              <!-- Tajuk di atas sempadan imej/keterangan -->
+              <h3 class="card-title-overlap">Hatnikotni Jelajah Cuaca</h3>
             </div>
 
             <div class="card-body">
@@ -419,11 +423,11 @@
     border-color: #374151;
   }
 
-  /* REKA LETAK KAD BERIMEJ */
+  /* REKA LETAK KAD BERIMEJ BARU (TERUS KEMAS DI DESKTOP & MOBILE) */
   .card-image-container {
     position: relative;
     width: 100%;
-    height: 220px;
+    height: 200px;
     overflow: hidden;
   }
 
@@ -444,41 +448,38 @@
     inset: 0;
     background: linear-gradient(
       to bottom,
-      rgba(11, 15, 25, 0.3) 0%,
+      rgba(11, 15, 25, 0.5) 0%,
+      rgba(11, 15, 25, 0.2) 40%,
       rgba(17, 25, 39, 0.95) 100%
     );
     z-index: 1;
   }
 
-  .card-header-overlay-inline {
+  /* TAGS DI SEBELAH ATAS IMEJ */
+  .card-tags-top {
     position: absolute;
-    bottom: -15px;
+    top: 15px;
     left: 20px;
     right: 20px;
     z-index: 10;
     display: flex;
-    flex-direction: row; 
-    align-items: center; 
-    justify-content: space-between; 
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
-  .overlay-title {
+  /* TAJUK BERADA DI ATAS SEMPADAN IMEJ & KETERANGAN */
+  .card-title-overlap {
+    position: absolute;
+    bottom: 12px;
+    left: 20px;
+    right: 20px;
+    z-index: 10;
     color: var(--text-light);
     font-size: 1.35rem;
+    font-weight: 700;
     margin: 0;
-  }
-
-  .card-header-overlay-inline .tags {
-    display: flex;
-    gap: 8px;
-    margin-right: 1.5rem; 
-  }
-
-  .card-tags {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+    line-height: 1.25;
   }
 
   .tag {
@@ -491,22 +492,18 @@
   }
 
   .tag-overlay {
-    background-color: rgba(11, 15, 25, 0.6);
+    background-color: rgba(11, 15, 25, 0.65);
     backdrop-filter: blur(4px);
     color: #e5e7eb;
     border-color: rgba(255, 255, 255, 0.15);
   }
 
   .card-body {
-    padding: 25px 30px 30px 30px;
+    padding: 20px 25px 25px 25px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  }
-
-  .card-with-image .card-body {
-    margin-top: 1rem;
   }
 
   .card h3 {
@@ -631,6 +628,10 @@
     .btn {
       width: 100%;
       box-sizing: border-box;
+    }
+
+    .card-title-overlap {
+      font-size: 1.2rem;
     }
     
     #scrollToTopBtn {
