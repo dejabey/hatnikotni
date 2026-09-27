@@ -17,7 +17,7 @@
   <body>
     <!-- HEADER & NAVIGASI -->
     <header class="header-container">
-      <a href="#" class="logo-link" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+      <a href="#" class="logo-link" id="logoLink">
         <img src="/logo.png" alt="Hatnikotni Logo" class="logo-img" />
       </a>
       
@@ -57,10 +57,8 @@
           <div class="card card-with-image">
             <div class="card-image-container">
               <img src="/jp-bg.jpg" alt="Pemandangan Sawah dan Bukit Perlis" class="card-img" />
-              <!-- Lapisan Gelap untuk Keterangan Teks Jelas -->
               <div class="card-image-overlay"></div>
               
-              <!-- BEKAS UNTUK TAGS DAN TAJUK YANG SEBARIS -->
               <div class="card-header-overlay-inline">
                 <div class="tags">
                   <span class="tag tag-overlay">Directory</span>
@@ -80,10 +78,8 @@
           <div class="card card-with-image">
             <div class="card-image-container">
               <img src="/ai-travel-planner-bg.jpg" alt="Pelancong menggunakan Perlis AI Travel Planner" class="card-img" />
-              <!-- Lapisan Gelap untuk Keterangan Teks Jelas -->
               <div class="card-image-overlay"></div>
               
-              <!-- BEKAS UNTUK TAGS DAN TAJUK YANG SEBARIS -->
               <div class="card-header-overlay-inline">
                 <div class="tags">
                   <span class="tag tag-overlay">AI Powered</span>
@@ -107,14 +103,12 @@
         <h2 class="section-title">WORDPRESS PLUGINS</h2>
         <div class="grid-container">
           
-          <!-- Card 3: Hatnikotni Chat (Dikemas kini dengan reka letak Imej) -->
+          <!-- Card 3: Hatnikotni Chat -->
           <div class="card card-with-image">
             <div class="card-image-container">
               <img src="/chat-bg.jpg" alt="Rangkaian Data Hatnikotni Chat" class="card-img" />
-              <!-- Lapisan Gelap untuk Keterangan Teks Jelas -->
               <div class="card-image-overlay"></div>
               
-              <!-- BEKAS UNTUK TAGS DAN TAJUK YANG SEBARIS -->
               <div class="card-header-overlay-inline">
                 <div class="tags">
                   <span class="tag tag-overlay">WordPress</span>
@@ -178,37 +172,54 @@
       </svg>
     </button>
 
-    <!-- KOD JAVASCRIPT UNTUK FUNGSI INTERAKTIF -->
+    <!-- SCRIPT INTERAKTIF (BEBAS RALAT TYPESCRIPT) -->
     <script>
       const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+      const logoLink = document.getElementById("logoLink");
+
+      // Skrol ke atas bila logo diklik
+      if (logoLink) {
+        logoLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
 
       // Tunjuk butang bila skrol ke bawah 300px
       window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-          scrollToTopBtn.classList.add("show");
-        } else {
-          scrollToTopBtn.classList.remove("show");
+        if (scrollToTopBtn) {
+          if (window.scrollY > 300) {
+            scrollToTopBtn.classList.add("show");
+          } else {
+            scrollToTopBtn.classList.remove("show");
+          }
         }
       });
 
-      // Skrol ke atas bila klik
-      scrollToTopBtn.addEventListener("click", () => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
+      // Skrol ke atas bila butang diklik
+      if (scrollToTopBtn) {
+        scrollToTopBtn.addEventListener("click", () => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
         });
-      });
+      }
 
-      // Smooth scroll untuk pautan internal (nav links)
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+      // Smooth scroll untuk pautan navigasi internal
+      document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e: MouseEvent) {
           e.preventDefault();
-          const targetId = this.getAttribute('href');
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            targetElement.scrollIntoView({
-              behavior: 'smooth'
-            });
+          const target = e.currentTarget as HTMLAnchorElement | null;
+          const targetId = target ? target.getAttribute("href") : null;
+          
+          if (targetId && targetId !== "#") {
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({
+                behavior: "smooth"
+              });
+            }
           }
         });
       });
@@ -229,7 +240,6 @@
     --border-color: #1e293b;   
   }
 
-  /* EFEK SMOOTH SCROLL KESELURUHAN HALAMAN */
   html {
     scroll-behavior: smooth;
   }
@@ -367,7 +377,7 @@
      ========================================= */
   .content-section {
     margin-bottom: 80px;
-    scroll-margin-top: 100px; /* Offset supaya tajuk tak tertutup bila scroll */
+    scroll-margin-top: 100px;
   }
 
   .section-title {
@@ -401,7 +411,7 @@
     border-color: #374151;
   }
 
-  /* REKA LETAK KAD BERIMEJ (TAGS & TAJUK SEBARIS OVERLAY) */
+  /* REKA LETAK KAD BERIMEJ */
   .card-image-container {
     position: relative;
     width: 100%;
@@ -424,7 +434,6 @@
   .card-image-overlay {
     position: absolute;
     inset: 0;
-    /* Gradient menggelapkan imej supaya teks pop */
     background: linear-gradient(
       to bottom,
       rgba(11, 15, 25, 0.3) 0%,
@@ -433,10 +442,9 @@
     z-index: 1;
   }
 
-  /* BEKAS FLEX UNTUK TAGS DAN TAJUK YANG SEBARIS (OVERLAY) */
   .card-header-overlay-inline {
     position: absolute;
-    bottom: -15px; /* Menindih sempadan imej/keterangan */
+    bottom: -15px;
     left: 20px;
     right: 20px;
     z-index: 10;
@@ -453,14 +461,12 @@
     margin: 0;
   }
 
-  /* Tags dalam Kad Berimej (Sebaris dengan tajuk) */
   .card-header-overlay-inline .tags {
     display: flex;
     gap: 8px;
     margin-right: 1.5rem; 
   }
 
-  /* Tags Standard (Untuk Kad Tanpa Imej) */
   .card-tags {
     display: flex;
     gap: 10px;
@@ -491,7 +497,6 @@
     justify-content: space-between;
   }
 
-  /* Penambahan margin top khas jika menggunakan imej (untuk memberi ruang tajuk menindih) */
   .card-with-image .card-body {
     margin-top: 1rem;
   }
@@ -519,7 +524,6 @@
     text-decoration: underline;
   }
 
-  /* PERENGGAN ABOUT (Kekal rapat) */
   .about-content p {
     margin-bottom: 8px; 
     line-height: 1.5;   
