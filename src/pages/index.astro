@@ -1,488 +1,216 @@
 ---
-import Layout from '../layouts/Layout.astro';
+// src/pages/index.astro
+// Halaman Utama Hatnikotni
 ---
 
-<Layout title="Hatnikotni Ventures | Independent Digital Studio">
-  <div class="page-container" id="top">
-    <!-- Left Column / Sticky Sidebar (Desktop) -->
-    <aside class="sidebar">
-      <div class="sidebar-inner">
-        <a href="/" class="logo-link">
-          <img src="/logo.png" alt="Hatnikotni Logo" class="logo-img" />
-        </a>
-        <p class="sidebar-bio">
-          Hatnikotni is an independent digital studio creating simple, useful products, AI tools, and WordPress plugins that are built to last.
-        </p>
-        <nav class="nav">
-          <a href="#projects">Projects</a>
-          <a href="#plugins">Plugins</a>
-          <a href="#about">About</a>
-        </nav>
-      </div>
-    </aside>
+<html lang="ms">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hatnikotni - Independent Digital Studio</title>
+  </head>
+  <body>
+    <!-- HEADER & NAVIGASI -->
+    <header class="header-container">
+      <a href="/" class="logo-link">
+        <!-- Logo akan diambil dari folder /public -->
+        <img src="/logo.png" alt="Hatnikotni Logo" class="logo-img" />
+      </a>
+      
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#plugins">Plugins</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+    </header>
 
-    <!-- Right Column / Main Content -->
+    <!-- KANDUNGAN UTAMA -->
     <main class="main-content">
-      <!-- Hero Section -->
-      <section class="hero">
-        <h1 class="hero-title">SIMPLE IDEAS.<br /><span class="highlight">USEFUL PRODUCTS.</span></h1>
-        <p class="hero-desc">Hatnikotni creates independent digital products, AI tools, and WordPress plugins that are simple, useful, and built to last.</p>
+      <section class="hero-section">
+        <h1>SIMPLE IDEAS.<br/><span class="highlight">USEFUL PRODUCTS.</span></h1>
+        
+        <p class="hero-text">
+          Hatnikotni creates independent digital products, AI tools, and WordPress plugins 
+          that are simple, useful, and built to last.
+        </p>
+        
         <div class="hero-buttons">
           <a href="#projects" class="btn btn-primary">Explore Products</a>
-          <a href="#about" class="btn btn-secondary">About Hatnikotni</a>
+          <a href="#about" class="btn btn-outline">About Hatnikotni</a>
         </div>
       </section>
-
-      <!-- Web & AI Projects Section -->
-      <section id="projects" class="content-section">
-        <h2 class="section-title">FEATURED PROJECTS</h2>
-        
-        <div class="projects-grid">
-          <!-- Project 1: Discover Perlis -->
-          <article class="project-card">
-            <div class="project-tags">
-              <span class="tag">Directory</span>
-              <span class="tag">Travel Guide</span>
-            </div>
-            <h3>Discover Perlis</h3>
-            <p>A modern travel guide and local business directory designed to help visitors discover the best of Perlis with confidence.</p>
-            <a href="https://perlis.xyz" target="_blank" rel="noopener noreferrer" class="project-link">
-              Visit Discover Perlis &rarr;
-            </a>
-          </article>
-
-          <!-- Project 2: Perlis AI Planner -->
-          <article class="project-card">
-            <div class="project-tags">
-              <span class="tag tag-ai">AI Powered</span>
-              <span class="tag">Smart Assistant</span>
-            </div>
-            <h3>Perlis AI Travel Planner</h3>
-            <p>An intelligent AI assistant that instantly generates customized per-day itineraries and travel recommendations for Perlis visitors.</p>
-            <a href="https://planner.perlis.xyz" target="_blank" rel="noopener noreferrer" class="project-link">
-              Try AI Planner &rarr;
-            </a>
-          </article>
-        </div>
-      </section>
-
-      <!-- WordPress Plugins Section -->
-      <section id="plugins" class="content-section">
-        <h2 class="section-title">WORDPRESS PLUGINS</h2>
-        
-        <div class="projects-grid">
-          <!-- Plugin 1: Hatnikotni Chat -->
-          <article class="project-card plugin-card">
-            <div class="project-tags">
-              <span class="tag tag-wp">WordPress</span>
-              <span class="tag">WhatsApp Analytics</span>
-            </div>
-            <h3>Hatnikotni Chat</h3>
-            <p>Lightweight WhatsApp contact routing with consent-aware first-party interaction analytics and UTM campaign attribution.</p>
-            <div class="status-badge">
-              <span class="pulse-dot"></span>
-              IN ACTIVE DEVELOPMENT
-            </div>
-          </article>
-
-          <!-- Plugin 2: Hatnikotni Jelajah Cuaca -->
-          <article class="project-card plugin-card">
-            <div class="project-tags">
-              <span class="tag tag-wp">WordPress</span>
-              <span class="tag">Malaysia API</span>
-            </div>
-            <h3>Hatnikotni Jelajah Cuaca</h3>
-            <p>WordPress weather and location engine exclusively for Malaysia, using localized weather data and Malaysian location services.</p>
-            <div class="status-badge">
-              <span class="pulse-dot"></span>
-              IN ACTIVE DEVELOPMENT
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- About Section -->
-      <section id="about" class="content-section">
-        <h2 class="section-title">ABOUT</h2>
-        <p class="about-text">Hatnikotni Ventures is an independent digital studio focused on crafting web experiences, practical tools, WordPress software, and AI-driven applications.</p>
-      </section>
-
-      <!-- Local Identity Footer -->
-      <footer class="footer">
-        <div class="local-badge">
-          <img src="/logo.png" alt="Hatnikotni Logo" class="footer-logo" />
-          <div>
-            <div class="badge-title">HANDCRAFTED WITH PRECISION IN NORTHERN MALAYSIA</div>
-            <div class="badge-sub">Minimalist custom node cluster design</div>
-          </div>
-        </div>
-        <p class="copyright">&copy; {new Date().getFullYear()} Hatnikotni Ventures. All rights reserved.</p>
-      </footer>
+      
+      <!-- Anda boleh masukkan komponen bahagian Kad Projek di bawah ini nanti -->
     </main>
-
-    <!-- Floating Back to Top Button -->
-    <a href="#top" id="backToTop" class="back-to-top" aria-label="Back to top">
-      &uarr;
-    </a>
-  </div>
-</Layout>
-
-<script>
-  const backToTopBtn = document.getElementById('backToTop');
-  if (backToTopBtn) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        backToTopBtn.classList.add('visible');
-      } else {
-        backToTopBtn.classList.remove('visible');
-      }
-    });
-  }
-</script>
+  </body>
+</html>
 
 <style>
-  /* Smooth Scrolling */
-  html {
-    scroll-behavior: smooth;
+  /* =========================================
+     1. ASAS & PEMBOLEH UBAH
+     ========================================= */
+  :root {
+    --bg-color: #0d1117;       /* Latar gelap charcoal */
+    --text-muted: #8b949e;     /* Teks kelabu */
+    --text-light: #ffffff;     /* Teks putih */
+    --accent-blue: #0099ff;    /* Warna butang dan highlight */
   }
 
-  /* Global Midnight Grid Theme */
-  :global(body) {
-    background-color: #070a12 !important;
-    color: #e2e8f0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  body {
     margin: 0;
-    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-muted);
+    /* Corak Grid Latar Belakang */
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
 
-  .page-container {
-    min-height: 100vh;
-    padding: 2rem 1.5rem;
-    background-image: 
-      linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
-    background-size: 36px 36px;
+  /* =========================================
+     2. HEADER & LOGO (SUSUNAN BENTUK DESKTOP)
+     ========================================= */
+  .header-container {
+    display: flex;
+    justify-content: space-between; /* Asingkan logo ke kiri, menu ke kanan */
+    align-items: center;
+    padding: 30px 10%;
     max-width: 1200px;
     margin: 0 auto;
   }
 
-  /* Layout Asimetri (Split Screen di Desktop) */
-  @media (min-width: 1024px) {
-    .page-container {
-      display: flex;
-      gap: 5rem;
-      padding: 4rem 2rem;
-    }
-
-    .sidebar {
-      width: 280px;
-      flex-shrink: 0;
-    }
-
-    .sidebar-inner {
-      position: sticky;
-      top: 4rem;
-    }
-
-    .main-content {
-      flex-grow: 1;
-    }
-  }
-
-  /* Sidebar Elements */
   .logo-img {
-    height: 48px;
-    width: auto;
+    width: 100%;
+    max-width: 200px; /* Saiz optimal Desktop */
+    height: auto;
     object-fit: contain;
-    margin-bottom: 1.5rem;
+    display: block;
   }
 
-  .sidebar-bio {
-    color: #94a3b8;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 2.5rem;
-  }
-
-  .nav {
+  .nav-links {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    gap: 30px; /* Jarak mendatar antara teks menu */
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
-  .nav a {
-    color: #64748b;
+  .nav-links a {
     text-decoration: none;
-    font-size: 1rem;
+    color: var(--text-muted);
     font-weight: 500;
     transition: color 0.2s ease;
   }
 
-  .nav a:hover {
-    color: #38bdf8;
+  .nav-links a:hover {
+    color: var(--text-light);
   }
 
-  /* Hero Section */
-  .hero {
-    margin-bottom: 4.5rem;
+  /* =========================================
+     3. KANDUNGAN HERO
+     ========================================= */
+  .main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 10%;
   }
 
-  .hero-title {
-    font-size: 2.75rem;
-    font-weight: 900;
+  .hero-section h1 {
+    font-size: 4rem;
     line-height: 1.1;
-    letter-spacing: -0.03em;
-    color: #ffffff;
-    margin-bottom: 1.25rem;
+    color: var(--text-light);
+    margin-top: 20px;
+    margin-bottom: 25px;
+    letter-spacing: -1px;
   }
 
-  @media (min-width: 768px) {
-    .hero-title {
-      font-size: 3.5rem;
-    }
+  .hero-section .highlight {
+    color: var(--accent-blue);
   }
 
-  .highlight {
-    color: #38bdf8;
-    text-shadow: 0 0 20px rgba(56, 189, 248, 0.35);
-  }
-
-  .hero-desc {
-    color: #94a3b8;
-    font-size: 1.1rem;
+  .hero-text {
+    font-size: 1.15rem;
     line-height: 1.6;
-    max-width: 580px;
-    margin-bottom: 2rem;
+    max-width: 550px;
+    margin-bottom: 40px;
   }
 
   .hero-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 15px;
   }
 
   .btn {
-    padding: 0.75rem 1.5rem;
+    padding: 14px 28px;
     border-radius: 8px;
+    font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
-    font-size: 0.95rem;
-    transition: all 0.2s ease;
+    transition: background-color 0.2s;
   }
 
   .btn-primary {
-    background-color: #0284c7;
+    background-color: var(--accent-blue);
     color: #ffffff;
-    box-shadow: 0 0 15px rgba(2, 132, 199, 0.4);
+    border: none;
   }
 
   .btn-primary:hover {
-    background-color: #38bdf8;
-    box-shadow: 0 0 25px rgba(56, 189, 248, 0.6);
+    background-color: #007acc;
   }
 
-  .btn-secondary {
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: #e2e8f0;
+  .btn-outline {
+    background-color: transparent;
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
-  .btn-secondary:hover {
-    border-color: #38bdf8;
-    color: #38bdf8;
+  .btn-outline:hover {
+    border-color: rgba(255, 255, 255, 0.5);
   }
 
-  /* Section Titles */
-  .content-section {
-    margin-bottom: 4rem;
-  }
+  /* =========================================
+     4. RESPONSIF / MOBILE VIEW (< 768px)
+     ========================================= */
+  @media (max-width: 768px) {
+    .header-container {
+      padding: 20px 5%;
+      flex-direction: column; /* Ubah susunan dari melintang ke menegak */
+      align-items: flex-start; /* Tolak semua ke kiri */
+      gap: 20px;
+    }
 
-  .section-title {
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: #38bdf8;
-    margin-bottom: 1.75rem;
-  }
+    .logo-img {
+      max-width: 130px; /* Kecilkan saiz logo di mobile supaya tidak makan ruang */
+    }
 
-  /* Projects & Plugins Grid */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
+    .nav-links {
+      width: 100%;
+      flex-direction: row; /* Kekalkan menu melintang di bawah logo */
+      justify-content: flex-start;
+      gap: 20px;
+      font-size: 0.95rem;
+    }
 
-  .project-card {
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    padding: 1.75rem;
-    backdrop-filter: blur(8px);
-    display: flex;
-    flex-direction: column;
-    transition: all 0.3s ease;
-  }
+    .main-content {
+      padding: 20px 5%;
+    }
 
-  .project-card:hover {
-    border-color: rgba(56, 189, 248, 0.4);
-    box-shadow: 0 0 25px rgba(56, 189, 248, 0.12);
-    transform: translateY(-3px);
-  }
+    .hero-section h1 {
+      font-size: 2.5rem; /* Kecilkan saiz tajuk utama di mobile */
+    }
 
-  .project-tags {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
+    .hero-buttons {
+      flex-direction: column; /* Susun butang atas dan bawah di skrin kecil */
+    }
 
-  .tag {
-    background: rgba(255, 255, 255, 0.05);
-    color: #94a3b8;
-    font-size: 0.75rem;
-    padding: 0.25rem 0.6rem;
-    border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-  }
-
-  .tag-ai {
-    background: rgba(168, 85, 247, 0.15);
-    color: #c084fc;
-    border-color: rgba(168, 85, 247, 0.2);
-  }
-
-  .tag-wp {
-    background: rgba(56, 189, 248, 0.15);
-    color: #38bdf8;
-    border-color: rgba(56, 189, 248, 0.2);
-  }
-
-  .project-card h3 {
-    font-size: 1.25rem;
-    color: #ffffff;
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-  }
-
-  .project-card p {
-    color: #94a3b8;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
-    flex-grow: 1;
-  }
-
-  .project-link {
-    color: #38bdf8;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
-  }
-
-  /* Live Pulsing Badge */
-  .status-badge {
-    display: inline-flex;
-    align-items: center;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: #34d399;
-    background: rgba(16, 185, 129, 0.1);
-    border: 1px solid rgba(16, 185, 129, 0.2);
-    padding: 0.35rem 0.75rem;
-    border-radius: 6px;
-    width: fit-content;
-  }
-
-  .pulse-dot {
-    width: 8px;
-    height: 8px;
-    background-color: #10b981;
-    border-radius: 50%;
-    margin-right: 8px;
-    box-shadow: 0 0 0 rgba(16, 185, 129, 0.4);
-    animation: pulse 1.8s infinite;
-  }
-
-  @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-    70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-  }
-
-  .about-text {
-    color: #94a3b8;
-    line-height: 1.7;
-    max-width: 600px;
-  }
-
-  /* Local Identity Footer */
-  .footer {
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding-top: 2.5rem;
-    margin-top: 4rem;
-  }
-
-  .local-badge {
-    background: rgba(15, 23, 42, 0.8);
-    border: 1px solid rgba(56, 189, 248, 0.2);
-    padding: 1.25rem;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .footer-logo {
-    height: 36px;
-    width: auto;
-  }
-
-  .badge-title {
-    font-size: 0.8rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    color: #38bdf8;
-  }
-
-  .badge-sub {
-    font-size: 0.75rem;
-    color: #64748b;
-  }
-
-  .copyright {
-    color: #64748b;
-    font-size: 0.85rem;
-  }
-
-  /* Back To Top Button */
-  .back-to-top {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    background: #0284c7;
-    color: #ffffff;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-size: 1.25rem;
-    font-weight: bold;
-    box-shadow: 0 0 15px rgba(2, 132, 199, 0.5);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
-    z-index: 99;
-  }
-
-  .back-to-top.visible {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .back-to-top:hover {
-    background: #38bdf8;
-    transform: translateY(-3px);
+    .btn {
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
   }
 </style>
