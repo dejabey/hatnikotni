@@ -1,268 +1,347 @@
 ---
-// Senarai data semua plugin Hatnikotni
+// src/pages/plugins.astro
+// Halaman Katalog Plugin Hatnikotni
+
 const plugins = [
   {
     name: "Hatnikotni Chat",
     status: "Active",
     tags: ["WordPress", "WhatsApp Analytics"],
     description: "Lightweight WhatsApp contact routing with consent-aware first-party interaction analytics and UTM campaign attribution.",
-    wpRepoUrl: "https://wordpress.org/plugins/", // Tukar pautan sebenar jika ada
-    githubUrl: "https://github.com/hatnikotni",
+    wpRepoUrl: "https://wordpress.org", 
+    githubUrl: null,
   },
   {
     name: "Hatnikotni Jelajah Cuaca",
     status: "Active",
-    tags: ["WordPress", "Malaysia API"],
+    tags: ["WordPress", "Malaysia API", "Weather"],
     description: "WordPress weather and location engine exclusively for Malaysia, using localized weather data and Malaysian location services.",
-    wpRepoUrl: null, // Letak null jika belum ada di WP.org
-    githubUrl: "https://github.com/hatnikotni",
+    wpRepoUrl: null,
+    githubUrl: "https://github.com/dejabey/jelajah-perlis-weather",
   },
   {
-    name: "Hatnikotni Simple SEO Toolkit",
-    status: "In Development",
-    tags: ["WordPress", "SEO"],
-    description: "No-bloat schema markup and meta tag manager tailored for lightweight static-friendly WordPress setups.",
+    name: "Jelajah Perlis Pricing",
+    status: "Active",
+    tags: ["WordPress", "Directory", "Pricing"],
+    description: "Lightweight pricing table and plan comparison module built specifically for directory listings and local Malaysian businesses.",
     wpRepoUrl: null,
-    githubUrl: null,
+    githubUrl: "https://github.com/dejabey/jelajah-perlis-pricing",
+  },
+  {
+    name: "Hatnikotni WP Menu Copier",
+    status: "Active",
+    tags: ["WordPress", "Admin Utility"],
+    description: "Fast utility plugin to duplicate, clone, and migrate WordPress navigation menus across theme locations and multisite setups effortlessly.",
+    wpRepoUrl: null,
+    githubUrl: "https://github.com/dejabey/hatnikotni-wp-menu-copier",
+  },
+  {
+    name: "Hatnikotni Scraper",
+    status: "In Development",
+    tags: ["WordPress", "Data Tool", "Scraper"],
+    description: "Automated content extraction engine and structured feed generator designed for clean, bloat-free data pipelines.",
+    wpRepoUrl: null,
+    githubUrl: "https://github.com/dejabey/hatnikotni-scraper",
   }
 ];
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WordPress Plugins — Hatnikotni Independent Digital Studio</title>
-  <meta name="description" content="Lightweight, fast, and bloat-free WordPress plugins built by Hatnikotni." />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-</head>
-<body>
-  <div class="container">
-    <!-- Header / Nav Ringkas -->
-    <header class="header">
-      <a href="/" class="logo">
-        <span class="logo-mark">HK</span>
-        <span class="logo-text">HATNIKOTNI</span>
+<html lang="ms">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+
+    <title>WordPress Plugins — Hatnikotni Independent Digital Studio</title>
+    <meta name="description" content="Lightweight, fast, and bloat-free WordPress plugins built by Hatnikotni." />
+  </head>
+  <body>
+    <!-- HEADER & NAVIGASI (Sama seperti index.astro) -->
+    <header class="header-container">
+      <a href="/" class="logo-link" id="logoLink">
+        <img src="/logo.png" alt="Hatnikotni Logo" class="logo-img" />
       </a>
-      <nav class="nav">
-        <a href="/">Home</a>
-        <a href="/plugins" class="active">Plugins</a>
-        <a href="/#about">About</a>
-        <a href="mailto:mai@hatnikotni.cc">Contact</a>
+      
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/plugins" class="active">Plugins</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
       </nav>
     </header>
 
-    <!-- Page Title -->
-    <main>
+    <!-- KANDUNGAN UTAMA -->
+    <main class="main-content">
+      
+      <!-- PAGE HEADER -->
       <section class="page-intro">
-        <p class="eyebrow">OPEN SOURCE & TOOLS</p>
-        <h1 class="page-title">WordPress Plugins</h1>
-        <p class="subtitle">
+        <span class="eyebrow">OPEN SOURCE & UTILITIES</span>
+        <h1 class="page-title">WORDPRESS PLUGINS</h1>
+        <p class="intro-text">
           Built with a strict no-bloat philosophy. Simple utilities, localized integrations, and privacy-first tools designed to do exactly what they promise.
         </p>
       </section>
 
-      <!-- Plugins Grid -->
-      <section class="plugins-grid">
-        {plugins.map((plugin) => (
-          <article class="plugin-card">
-            <div class="card-top">
-              <div class="tags-group">
-                {plugin.tags.map((tag) => (
-                  <span class="tag">{tag}</span>
-                ))}
+      <!-- SENARAI PLUGINS GRID -->
+      <section class="content-section">
+        <div class="grid-container">
+          {plugins.map((plugin) => (
+            <div class="card plugin-card">
+              <div class="card-body">
+                
+                <div class="card-top-meta">
+                  <div class="tags-group">
+                    {plugin.tags.map((tag) => (
+                      <span class="tag">{tag}</span>
+                    ))}
+                  </div>
+                  <span class={`status-badge ${plugin.status === "Active" ? "status-active" : "status-dev"}`}>
+                    {plugin.status}
+                  </span>
+                </div>
+
+                <h3 class="plugin-title">{plugin.name}</h3>
+                <p class="plugin-description">{plugin.description}</p>
+
+                <div class="plugin-actions">
+                  {plugin.wpRepoUrl && (
+                    <a href={plugin.wpRepoUrl} target="_blank" rel="noopener noreferrer" class="btn btn-wp">
+                      WordPress.org &nearr;
+                    </a>
+                  )}
+                  {plugin.githubUrl && (
+                    <a href={plugin.githubUrl} target="_blank" rel="noopener noreferrer" class="btn btn-gh">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                      </svg>
+                      GitHub &nearr;
+                    </a>
+                  )}
+                  {!plugin.wpRepoUrl && !plugin.githubUrl && (
+                    <span class="coming-soon">Coming soon to repository</span>
+                  )}
+                </div>
+
               </div>
-              <span class={`status-badge ${plugin.status === "Active" ? "active" : "dev"}`}>
-                {plugin.status}
-              </span>
             </div>
-
-            <h2 class="plugin-title">{plugin.name}</h2>
-            <p class="plugin-desc">{plugin.description}</p>
-
-            <div class="card-actions">
-              {plugin.wpRepoUrl && (
-                <a href={plugin.wpRepoUrl} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                  WordPress.org &nearr;
-                </a>
-              )}
-              {plugin.githubUrl && (
-                <a href={plugin.githubUrl} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                  GitHub &nearr;
-                </a>
-              )}
-              {!plugin.wpRepoUrl && !plugin.githubUrl && (
-                <span class="coming-soon-text">Coming soon to GitHub</span>
-              )}
-            </div>
-          </article>
-        ))}
+          ))}
+        </div>
       </section>
+
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>&copy; 2026 Hatnikotni Independent Digital Studio. All rights reserved.</p>
+    <!-- FOOTER (Sama seperti index.astro) -->
+    <footer class="footer-container">
+      <div class="footer-content">
+        <p>&copy; 2026 Hatnikotni Independent Digital Studio. All rights reserved.</p>
+      </div>
     </footer>
-  </div>
-</body>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <button id="scrollToTopBtn" title="Ke atas">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+      </svg>
+    </button>
+
+    <script>
+      const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+      window.addEventListener("scroll", () => {
+        if (scrollToTopBtn) {
+          if (window.scrollY > 300) {
+            scrollToTopBtn.classList.add("show");
+          } else {
+            scrollToTopBtn.classList.remove("show");
+          }
+        }
+      });
+
+      if (scrollToTopBtn) {
+        scrollToTopBtn.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+    </script>
+  </body>
 </html>
 
 <style>
+  /* =========================================
+     1. ASAS & PEMBOLEH UBAH (Tepat dari index.astro)
+     ========================================= */
   :root {
-    --bg-dark: #070c14;
-    --card-bg: #0f172a;
-    --card-border: #1e293b;
-    --text-white: #f8fafc;
-    --text-muted: #94a3b8;
-    --accent-blue: #38bdf8;
-    --status-active-bg: rgba(34, 197, 94, 0.15);
-    --status-active-text: #4ade80;
-    --status-dev-bg: rgba(234, 179, 8, 0.15);
-    --status-dev-text: #facc15;
+    --bg-color: #0b0f19;       
+    --card-bg: #111927;        
+    --text-muted: #9ca3af;     
+    --text-light: #f3f4f6;     
+    --accent-blue: #0ea5e9;    
+    --border-color: #1e293b;   
   }
 
-  * {
-    box-sizing: border-box;
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-muted);
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    line-height: 1.6;
+  }
+
+  /* =========================================
+     2. HEADER & LOGO (Tepat dari index.astro)
+     ========================================= */
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    margin-top: 5px; 
+    text-decoration: none;
+  }
+
+  .logo-img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 35px;
+    list-style: none;
     margin: 0;
     padding: 0;
   }
 
-  body {
-    background-color: var(--bg-dark);
-    color: var(--text-white);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    line-height: 1.6;
-    min-height: 100vh;
-  }
-
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 40px 24px;
-  }
-
-  /* Header */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 40px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  .nav-links a {
     text-decoration: none;
-    color: var(--text-white);
-    font-weight: 700;
-    letter-spacing: 0.05em;
-  }
-
-  .logo-mark {
-    background: linear-gradient(135deg, #38bdf8, #ec4899);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 1.4rem;
-  }
-
-  .nav {
-    display: flex;
-    gap: 20px;
-  }
-
-  .nav a {
     color: var(--text-muted);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.2s;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
   }
 
-  .nav a:hover,
-  .nav a.active {
-    color: var(--text-white);
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--text-light);
   }
 
-  /* Page Intro */
+  /* =========================================
+     3. KANDUNGAN UTAMA
+     ========================================= */
+  .main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 10% 40px 10%;
+  }
+
   .page-intro {
-    padding: 60px 0 40px;
+    margin-bottom: 50px;
   }
 
   .eyebrow {
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
     color: var(--accent-blue);
+    text-transform: uppercase;
+    font-weight: 600;
+    display: block;
     margin-bottom: 12px;
   }
 
   .page-title {
-    font-size: 2.2rem;
+    font-size: 2.8rem;
+    line-height: 1.15;
+    color: var(--text-light);
+    margin: 0 0 18px 0;
+    letter-spacing: -1px;
     font-weight: 800;
-    margin-bottom: 16px;
-    letter-spacing: -0.02em;
   }
 
-  .subtitle {
-    color: var(--text-muted);
-    font-size: 1.05rem;
+  .intro-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
     max-width: 650px;
   }
 
-  /* Grid & Cards */
-  .plugins-grid {
+  /* =========================================
+     4. KAD & GRID
+     ========================================= */
+  .content-section {
+    margin-bottom: 80px;
+  }
+
+  .grid-container {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-    margin-top: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    align-items: stretch;
   }
 
-  @media (min-width: 680px) {
-    .plugins-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  .plugin-card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
+  .card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: 12px;
-    padding: 24px;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    transition: border-color 0.2s ease, transform 0.2s ease;
   }
 
-  .plugin-card:hover {
-    border-color: rgba(56, 189, 248, 0.4);
-    transform: translateY(-2px);
+  .card:hover {
+    transform: translateY(-5px);
+    border-color: #374151;
   }
 
-  .card-top {
+  .card-body {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-top-meta {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
-    gap: 8px;
+    gap: 10px;
+    margin-bottom: 18px;
   }
 
   .tags-group {
     display: flex;
-    gap: 6px;
     flex-wrap: wrap;
+    gap: 6px;
   }
 
   .tag {
-    font-size: 0.7rem;
-    padding: 3px 8px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.06);
     color: var(--text-muted);
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .status-badge {
@@ -270,78 +349,167 @@ const plugins = [
     font-weight: 600;
     padding: 3px 10px;
     border-radius: 999px;
+    letter-spacing: 0.3px;
     white-space: nowrap;
   }
 
-  .status-badge.active {
-    background: var(--status-active-bg);
-    color: var(--status-active-text);
+  .status-active {
+    background: rgba(34, 197, 94, 0.12);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.25);
   }
 
-  .status-badge.dev {
-    background: var(--status-dev-bg);
-    color: var(--status-dev-text);
+  .status-dev {
+    background: rgba(234, 179, 8, 0.12);
+    color: #facc15;
+    border: 1px solid rgba(234, 179, 8, 0.25);
   }
 
   .plugin-title {
-    font-size: 1.25rem;
+    color: var(--text-light);
+    font-size: 1.3rem;
+    margin: 0 0 12px 0;
     font-weight: 700;
-    margin-bottom: 10px;
   }
 
-  .plugin-desc {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-bottom: 24px;
+  .plugin-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
     flex-grow: 1;
   }
 
-  .card-actions {
+  .plugin-actions {
     display: flex;
     gap: 10px;
     align-items: center;
     flex-wrap: wrap;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding-top: 16px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border-color);
   }
 
   .btn {
-    font-size: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.85rem;
     font-weight: 600;
     text-decoration: none;
-    padding: 6px 14px;
-    border-radius: 6px;
-    transition: opacity 0.2s;
+    transition: all 0.2s ease;
   }
 
-  .btn-primary {
-    background: #0284c7;
-    color: #fff;
+  .btn-wp {
+    background-color: var(--accent-blue);
+    color: #ffffff;
   }
 
-  .btn-secondary {
-    background: rgba(255, 255, 255, 0.08);
-    color: #e2e8f0;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  .btn-wp:hover {
+    background-color: #0284c7;
   }
 
-  .btn:hover {
-    opacity: 0.85;
+  .btn-gh {
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    color: var(--text-light);
   }
 
-  .coming-soon-text {
-    font-size: 0.8rem;
+  .btn-gh:hover {
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+    background-color: rgba(14, 165, 233, 0.08);
+  }
+
+  .coming-soon {
+    font-size: 0.85rem;
     color: var(--text-muted);
     font-style: italic;
   }
 
-  /* Footer */
-  .footer {
-    margin-top: 80px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  /* =========================================
+     5. FOOTER & SCROLL BUTTON
+     ========================================= */
+  .footer-container {
+    border-top: 1px solid var(--border-color);
+    padding: 40px 10%;
+    margin-top: 20px;
+    background-color: rgba(11, 15, 25, 0.8);
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
+  }
+
+  #scrollToTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--card-bg);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, background-color 0.3s, color 0.3s;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  }
+
+  #scrollToTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #scrollToTopBtn:hover {
+    background-color: var(--accent-blue);
+    color: white;
+    border-color: var(--accent-blue);
+  }
+
+  /* =========================================
+     6. RESPONSIF / MOBILE VIEW (< 768px)
+     ========================================= */
+  @media (max-width: 768px) {
+    .header-container {
+      padding: 25px 5%;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo-img {
+      max-width: 140px; 
+    }
+
+    .nav-links {
+      width: 100%;
+      flex-direction: row;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .main-content {
+      padding: 20px 5% 40px 5%;
+    }
+
+    .page-title {
+      font-size: 2.2rem;
+    }
+
+    #scrollToTopBtn {
+      bottom: 20px;
+      right: 20px;
+    }
   }
 </style>
