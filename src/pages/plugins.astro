@@ -1,0 +1,347 @@
+---
+// Senarai data semua plugin Hatnikotni
+const plugins = [
+  {
+    name: "Hatnikotni Chat",
+    status: "Active",
+    tags: ["WordPress", "WhatsApp Analytics"],
+    description: "Lightweight WhatsApp contact routing with consent-aware first-party interaction analytics and UTM campaign attribution.",
+    wpRepoUrl: "https://wordpress.org/plugins/", // Tukar pautan sebenar jika ada
+    githubUrl: "https://github.com/hatnikotni",
+  },
+  {
+    name: "Hatnikotni Jelajah Cuaca",
+    status: "Active",
+    tags: ["WordPress", "Malaysia API"],
+    description: "WordPress weather and location engine exclusively for Malaysia, using localized weather data and Malaysian location services.",
+    wpRepoUrl: null, // Letak null jika belum ada di WP.org
+    githubUrl: "https://github.com/hatnikotni",
+  },
+  {
+    name: "Hatnikotni Simple SEO Toolkit",
+    status: "In Development",
+    tags: ["WordPress", "SEO"],
+    description: "No-bloat schema markup and meta tag manager tailored for lightweight static-friendly WordPress setups.",
+    wpRepoUrl: null,
+    githubUrl: null,
+  }
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WordPress Plugins — Hatnikotni Independent Digital Studio</title>
+  <meta name="description" content="Lightweight, fast, and bloat-free WordPress plugins built by Hatnikotni." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body>
+  <div class="container">
+    <!-- Header / Nav Ringkas -->
+    <header class="header">
+      <a href="/" class="logo">
+        <span class="logo-mark">HK</span>
+        <span class="logo-text">HATNIKOTNI</span>
+      </a>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/plugins" class="active">Plugins</a>
+        <a href="/#about">About</a>
+        <a href="mailto:mai@hatnikotni.cc">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Page Title -->
+    <main>
+      <section class="page-intro">
+        <p class="eyebrow">OPEN SOURCE & TOOLS</p>
+        <h1 class="page-title">WordPress Plugins</h1>
+        <p class="subtitle">
+          Built with a strict no-bloat philosophy. Simple utilities, localized integrations, and privacy-first tools designed to do exactly what they promise.
+        </p>
+      </section>
+
+      <!-- Plugins Grid -->
+      <section class="plugins-grid">
+        {plugins.map((plugin) => (
+          <article class="plugin-card">
+            <div class="card-top">
+              <div class="tags-group">
+                {plugin.tags.map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+              <span class={`status-badge ${plugin.status === "Active" ? "active" : "dev"}`}>
+                {plugin.status}
+              </span>
+            </div>
+
+            <h2 class="plugin-title">{plugin.name}</h2>
+            <p class="plugin-desc">{plugin.description}</p>
+
+            <div class="card-actions">
+              {plugin.wpRepoUrl && (
+                <a href={plugin.wpRepoUrl} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                  WordPress.org &nearr;
+                </a>
+              )}
+              {plugin.githubUrl && (
+                <a href={plugin.githubUrl} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                  GitHub &nearr;
+                </a>
+              )}
+              {!plugin.wpRepoUrl && !plugin.githubUrl && (
+                <span class="coming-soon-text">Coming soon to GitHub</span>
+              )}
+            </div>
+          </article>
+        ))}
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2026 Hatnikotni Independent Digital Studio. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
+
+<style>
+  :root {
+    --bg-dark: #070c14;
+    --card-bg: #0f172a;
+    --card-border: #1e293b;
+    --text-white: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent-blue: #38bdf8;
+    --status-active-bg: rgba(34, 197, 94, 0.15);
+    --status-active-text: #4ade80;
+    --status-dev-bg: rgba(234, 179, 8, 0.15);
+    --status-dev-text: #facc15;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-white);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .logo-mark {
+    background: linear-gradient(135deg, #38bdf8, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.4rem;
+  }
+
+  .nav {
+    display: flex;
+    gap: 20px;
+  }
+
+  .nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+
+  .nav a:hover,
+  .nav a.active {
+    color: var(--text-white);
+  }
+
+  /* Page Intro */
+  .page-intro {
+    padding: 60px 0 40px;
+  }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    color: var(--accent-blue);
+    margin-bottom: 12px;
+  }
+
+  .page-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 650px;
+  }
+
+  /* Grid & Cards */
+  .plugins-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 20px;
+  }
+
+  @media (min-width: 680px) {
+    .plugins-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .plugin-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .plugin-card:hover {
+    border-color: rgba(56, 189, 248, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 8px;
+  }
+
+  .tags-group {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    color: var(--text-muted);
+  }
+
+  .status-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .status-badge.active {
+    background: var(--status-active-bg);
+    color: var(--status-active-text);
+  }
+
+  .status-badge.dev {
+    background: var(--status-dev-bg);
+    color: var(--status-dev-text);
+  }
+
+  .plugin-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .plugin-desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+    flex-grow: 1;
+  }
+
+  .card-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 16px;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: opacity 0.2s;
+  }
+
+  .btn-primary {
+    background: #0284c7;
+    color: #fff;
+  }
+
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: #e2e8f0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .btn:hover {
+    opacity: 0.85;
+  }
+
+  .coming-soon-text {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+</style>
