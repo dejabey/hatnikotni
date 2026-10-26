@@ -99,7 +99,10 @@
 
       <!-- WORDPRESS PLUGINS -->
       <section id="plugins" class="content-section">
-        <h2 class="section-title">WORDPRESS PLUGINS</h2>
+        <div class="section-header">
+          <h2 class="section-title">WORDPRESS PLUGINS</h2>
+          <a href="/plugins" class="see-all-link">View all plugins &rarr;</a>
+        </div>
         <div class="grid-container">
           
           <!-- Card 3: Hatnikotni Chat -->
@@ -437,6 +440,31 @@
     text-transform: uppercase;
     margin-bottom: 25px;
     font-weight: 600;
+  }
+
+  /* Susunan Tajuk Bahagian & Pautan Sebaris */
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+
+  .section-header .section-title {
+    margin-bottom: 0;
+  }
+
+  .see-all-link {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+
+  .see-all-link:hover {
+    text-decoration: underline;
+    opacity: 0.8;
   }
 
   .grid-container {
