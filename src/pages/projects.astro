@@ -1,0 +1,239 @@
+---
+// src/pages/projects.astro
+// Hatnikotni Digital Projects Directory
+
+const projects = [
+  {
+    name: "Discover Perlis",
+    status: "Active",
+    tags: ["Directory", "Travel Guide"],
+    description: "A modern travel guide and local business directory designed to help visitors discover the best of Perlis with confidence.",
+    url: "#",
+    btnText: "Visit Discover Perlis ↗"
+  },
+  {
+    name: "Perlis AI Travel Planner",
+    status: "Active",
+    tags: ["AI Powered", "Smart Assistant"],
+    description: "An intelligent AI assistant that instantly generates customized per-day itineraries and travel recommendations for Perlis visitors.",
+    url: "#",
+    btnText: "Try AI Planner ↗"
+  },
+  {
+    name: "BeliHatni",
+    status: "In Development",
+    tags: ["E-Commerce", "Local Goods"],
+    description: "A curated digital marketplace dedicated to showcasing authentic local products, crafts, and specialties from northern Malaysia.",
+    url: null,
+    btnText: "Coming Soon"
+  },
+  {
+    name: "Resepi",
+    status: "In Development",
+    tags: ["Culinary", "Heritage Archive"],
+    description: "A digital collection preserving time-honored traditional recipes and culinary heritage passed down through generations in northern Malaysia.",
+    url: null,
+    btnText: "Coming Soon"
+  }
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+
+    <title>Digital Projects — Hatnikotni Independent Digital Studio</title>
+    <meta name="description" content="A collection of independent digital products, directories, and platforms built by Hatnikotni." />
+  </head>
+  <body>
+    <!-- HEADER & NAVIGATION -->
+    <header class="header-container">
+      <a href="/" class="logo-link" id="logoLink">
+        <img src="/logo.png" alt="Hatnikotni Logo" class="logo-img" />
+      </a>
+      
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/projects" class="active">Projects</a></li>
+          <li><a href="/plugins">Plugins</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      
+      <!-- PAGE HEADER -->
+      <section class="page-intro">
+        <span class="eyebrow">OUR PORTFOLIO</span>
+        <h1 class="page-title">DIGITAL PROJECTS</h1>
+        <p class="intro-text">
+          A collection of independent digital products, local directories, and web platforms designed to solve everyday problems and empower communities.
+        </p>
+      </section>
+
+      <!-- PROJECTS GRID -->
+      <section class="content-section">
+        <div class="grid-container">
+          {projects.map((project) => (
+            <div class="card project-card">
+              <div class="card-body">
+                
+                <div class="card-top-meta">
+                  <div class="tags-group">
+                    {project.tags.map((tag) => (
+                      <span class="tag">{tag}</span>
+                    ))}
+                  </div>
+                  <span class={`status-badge ${project.status === "Active" ? "status-active" : "status-dev"}`}>
+                    {project.status}
+                  </span>
+                </div>
+
+                <h3 class="project-title">{project.name}</h3>
+                <p class="project-description">{project.description}</p>
+
+                <div class="project-actions">
+                  {project.url ? (
+                    <a href={project.url} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                      {project.btnText}
+                    </a>
+                  ) : (
+                    <span class="coming-soon">{project.btnText}</span>
+                  )}
+                </div>
+
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer-container">
+      <div class="footer-content">
+        <p>&copy; 2026 Hatnikotni Independent Digital Studio. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <button id="scrollToTopBtn" title="Back to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+      </svg>
+    </button>
+
+    <script>
+      const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+      window.addEventListener("scroll", () => {
+        if (scrollToTopBtn) {
+          if (window.scrollY > 300) {
+            scrollToTopBtn.classList.add("show");
+          } else {
+            scrollToTopBtn.classList.remove("show");
+          }
+        }
+      });
+
+      if (scrollToTopBtn) {
+        scrollToTopBtn.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+    </script>
+  </body>
+</html>
+
+<style>
+  :root {
+    --bg-color: #0b0f19;       
+    --card-bg: #111927;        
+    --text-muted: #9ca3af;     
+    --text-light: #f3f4f6;     
+    --accent-blue: #0ea5e9;    
+    --border-color: #1e293b;   
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-muted);
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    line-height: 1.6;
+  }
+
+  .header-container {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 30px 10%; max-width: 1200px; margin: 0 auto;
+  }
+  .logo-link { display: flex; align-items: center; margin-top: 5px; text-decoration: none; }
+  .logo-img { width: 100%; max-width: 180px; height: auto; object-fit: contain; display: block; }
+  .nav-links { display: flex; gap: 35px; list-style: none; margin: 0; padding: 0; }
+  .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.95rem; font-weight: 500; transition: color 0.2s ease; }
+  .nav-links a:hover, .nav-links a.active { color: var(--text-light); }
+
+  .main-content { max-width: 1200px; margin: 0 auto; padding: 40px 10% 40px 10%; }
+  
+  .page-intro { margin-bottom: 50px; }
+  .eyebrow { font-size: 0.85rem; letter-spacing: 1.5px; color: var(--accent-blue); text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 12px; }
+  .page-title { font-size: 2.8rem; line-height: 1.15; color: var(--text-light); margin: 0 0 18px 0; letter-spacing: -1px; font-weight: 800; }
+  .intro-text { font-size: 1.1rem; line-height: 1.7; max-width: 650px; }
+
+  .content-section { margin-bottom: 80px; }
+  .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; align-items: stretch; }
+  
+  .card {
+    background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px;
+    overflow: hidden; transition: transform 0.2s, border-color 0.2s; display: flex; flex-direction: column;
+  }
+  .card:hover { transform: translateY(-5px); border-color: #374151; }
+  .card-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+  
+  .card-top-meta { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 18px; }
+  .tags-group { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { background-color: rgba(255, 255, 255, 0.06); color: var(--text-muted); font-size: 0.75rem; padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.08); }
+  
+  .status-badge { font-size: 0.7rem; font-weight: 600; padding: 3px 10px; border-radius: 999px; letter-spacing: 0.3px; white-space: nowrap; }
+  .status-active { background: rgba(34, 197, 94, 0.12); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.25); }
+  .status-dev { background: rgba(234, 179, 8, 0.12); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.25); }
+
+  .project-title { color: var(--text-light); font-size: 1.3rem; margin: 0 0 12px 0; font-weight: 700; }
+  .project-description { font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px; flex-grow: 1; }
+  
+  .project-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--border-color); }
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: all 0.2s ease; }
+  .btn-primary { background-color: var(--accent-blue); color: #ffffff; }
+  .btn-primary:hover { background-color: #0284c7; }
+  .coming-soon { font-size: 0.85rem; color: var(--text-muted); font-style: italic; }
+
+  .footer-container { border-top: 1px solid var(--border-color); padding: 40px 10%; margin-top: 20px; background-color: rgba(11, 15, 25, 0.8); }
+  .footer-content { max-width: 1200px; margin: 0 auto; text-align: center; font-size: 0.85rem; color: var(--text-muted); }
+
+  #scrollToTopBtn { position: fixed; bottom: 30px; right: 30px; background-color: var(--card-bg); color: var(--text-muted); border: 1px solid var(--border-color); border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s, background-color 0.3s, color 0.3s; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+  #scrollToTopBtn.show { opacity: 1; visibility: visible; }
+  #scrollToTopBtn:hover { background-color: var(--accent-blue); color: white; border-color: var(--accent-blue); }
+
+  @media (max-width: 768px) {
+    .header-container { padding: 25px 5%; flex-direction: column; align-items: center; gap: 20px; }
+    .logo-img { max-width: 140px; }
+    .nav-links { width: 100%; flex-direction: row; justify-content: center; gap: 20px; }
+    .main-content { padding: 20px 5% 40px 5%; }
+    .page-title { font-size: 2.2rem; }
+    #scrollToTopBtn { bottom: 20px; right: 20px; }
+  }
+</style>
